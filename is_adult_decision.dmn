@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<dmn:definitions xmlns:dmn="http://www.omg.org/spec/DMN/20180521/MODEL/" xmlns="https://kiegroup.org/dmn/_E72FA178-3561-4880-A2B1-51E65F4A3910" xmlns:feel="http://www.omg.org/spec/DMN/20180521/FEEL/" xmlns:kie="http://www.drools.org/kie/dmn/1.2" xmlns:dmndi="http://www.omg.org/spec/DMN/20180521/DMNDI/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" id="_EEC3DC2A-9163-4015-8D14-58AB62B57471" name="Untitled" typeLanguage="http://www.omg.org/spec/DMN/20180521/FEEL/" namespace="https://kiegroup.org/dmn/_E72FA178-3561-4880-A2B1-51E65F4A3910">
+<dmn:definitions xmlns:dmn="http://www.omg.org/spec/DMN/20180521/MODEL/" xmlns="https://kiegroup.org/dmn/_E72FA178-3561-4880-A2B1-51E65F4A3910" xmlns:feel="http://www.omg.org/spec/DMN/20180521/FEEL/" xmlns:kie="http://www.drools.org/kie/dmn/1.2" xmlns:dmndi="http://www.omg.org/spec/DMN/20180521/DMNDI/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" id="_EEC3DC2A-9163-4015-8D14-58AB62B57471" name="check_if_person_is_adult" typeLanguage="http://www.omg.org/spec/DMN/20180521/FEEL/" namespace="https://kiegroup.org/dmn/_E72FA178-3561-4880-A2B1-51E65F4A3910">
   <dmn:extensionElements/>
   <dmn:itemDefinition id="_E3648575-59CC-46D5-8FA7-ED244DB2D967" name="tPerson" isCollection="false">
     <dmn:itemComponent id="_9B780AE1-446D-409B-BBE3-4A369E236DD0" name="Age" isCollection="false">
@@ -10,11 +10,11 @@
     <dmn:extensionElements/>
     <dmn:variable id="_FCA8742B-76DA-4E4E-9004-9387B77DA3A2" name="Person" typeRef="tPerson"/>
   </dmn:inputData>
-  <dmn:decision id="_E436BF5F-D3D4-44F8-9758-276F790DA400" name="is_adult">
+  <dmn:decision id="_E436BF5F-D3D4-44F8-9758-276F790DA400" name="is adult?">
     <dmn:description>Proofes if a Person is an Adult</dmn:description>
     <dmn:extensionElements/>
     <dmn:question>is Adult?</dmn:question>
-    <dmn:variable id="_8DFDA32D-0806-45BB-A66E-AA2425BB9FEC" name="is_adult" typeRef="boolean"/>
+    <dmn:variable id="_8DFDA32D-0806-45BB-A66E-AA2425BB9FEC" name="is adult?" typeRef="boolean"/>
     <dmn:informationRequirement id="_E565C953-DF7C-43DD-8BE0-05CC7AAB0063">
       <dmn:requiredInput href="#_10F97D51-BF4D-457B-AA39-68073B704617"/>
     </dmn:informationRequirement>
