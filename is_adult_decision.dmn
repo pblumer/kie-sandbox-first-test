@@ -10,9 +10,11 @@
     <dmn:extensionElements/>
     <dmn:variable id="_FCA8742B-76DA-4E4E-9004-9387B77DA3A2" name="Person" typeRef="tPerson"/>
   </dmn:inputData>
-  <dmn:decision id="_E436BF5F-D3D4-44F8-9758-276F790DA400" name="Is adult">
+  <dmn:decision id="_E436BF5F-D3D4-44F8-9758-276F790DA400" name="is_adult">
+    <dmn:description>Proofes if a Person is an Adult</dmn:description>
     <dmn:extensionElements/>
-    <dmn:variable id="_8DFDA32D-0806-45BB-A66E-AA2425BB9FEC" name="Is adult" typeRef="boolean"/>
+    <dmn:question>is Adult?</dmn:question>
+    <dmn:variable id="_8DFDA32D-0806-45BB-A66E-AA2425BB9FEC" name="is_adult" typeRef="boolean"/>
     <dmn:informationRequirement id="_E565C953-DF7C-43DD-8BE0-05CC7AAB0063">
       <dmn:requiredInput href="#_10F97D51-BF4D-457B-AA39-68073B704617"/>
     </dmn:informationRequirement>
