@@ -1,542 +1,713 @@
-<?xml version="1.0" encoding="utf-8" standalone="no"?>
-<dmn12:definitions name="Mietvertragsabrechnung erstellen" id="def_ef4d3089-c2dd-cb2b-662e-79c2d364ab66" xmlns:ino="http://www.mid.de/spec/Innovator/14.2.1" xmlns:feel="http://www.omg.org/spec/FEEL/20140401" xmlns:dmn12="http://www.omg.org/spec/DMN/20180521/MODEL/" xmlns="http://sample.dmn.mid.de/" namespace="http://sample.dmn.mid.de/" exporter="Innovator" exporterVersion="14.3.1">
-  <dmn12:itemDefinition name="Mietvertragsdaten" id="_f695abb3-6599-ed9f-1396-0a1300e50be5">
-    <dmn12:extensionElements>
-      <ino:profilename value="ROOT PROFILE" />
-      <ino:stereotypename value="structure" />
-    </dmn12:extensionElements>
-    <dmn12:itemComponent name="Frei-KM" id="_396ab1a9-203d-eba8-2ef3-2f39a5462604">
-      <dmn12:extensionElements>
-        <ino:profilename value="ROOT PROFILE" />
-        <ino:stereotypename value="structureEntry" />
-      </dmn12:extensionElements>
-      <dmn12:typeRef>number</dmn12:typeRef>
-    </dmn12:itemComponent>
-    <dmn12:itemComponent name="Fahrzeug-KM" id="_03622cbc-5362-8969-b651-02223115bd52">
-      <dmn12:extensionElements>
-        <ino:profilename value="ROOT PROFILE" />
-        <ino:stereotypename value="structureEntry" />
-      </dmn12:extensionElements>
-      <dmn12:typeRef>number</dmn12:typeRef>
-    </dmn12:itemComponent>
-    <dmn12:itemComponent name="Vermietete Tage" id="_900256cb-66e9-805b-755b-e758bf76dccb">
-      <dmn12:extensionElements>
-        <ino:profilename value="ROOT PROFILE" />
-        <ino:stereotypename value="structureEntry" />
-      </dmn12:extensionElements>
-      <dmn12:typeRef>number</dmn12:typeRef>
-    </dmn12:itemComponent>
-    <dmn12:itemComponent name="Kautionssumme" id="_e0f897fa-3883-87dc-7ebe-f62aa6588717">
-      <dmn12:extensionElements>
-        <ino:profilename value="ROOT PROFILE" />
-        <ino:stereotypename value="structureEntry" />
-      </dmn12:extensionElements>
-      <dmn12:typeRef>number</dmn12:typeRef>
-    </dmn12:itemComponent>
-    <dmn12:itemComponent name="Enthaltenes Zubehör" id="_0d83ca76-0537-296a-be32-726c9cb5745a">
-      <dmn12:extensionElements>
-        <ino:profilename value="ROOT PROFILE" />
-        <ino:stereotypename value="structureEntry" />
-      </dmn12:extensionElements>
-      <dmn12:typeRef>string</dmn12:typeRef>
-    </dmn12:itemComponent>
-    <dmn12:itemComponent name="Deckungsart" id="_fbb1a128-5d13-847b-dcb2-66ec6aed7360">
-      <dmn12:extensionElements>
-        <ino:profilename value="ROOT PROFILE" />
-        <ino:stereotypename value="structureEntry" />
-      </dmn12:extensionElements>
-      <dmn12:typeRef>string</dmn12:typeRef>
-    </dmn12:itemComponent>
-  </dmn12:itemDefinition>
-  <dmn12:itemDefinition name="Fahrzeug" id="_571b0acd-c595-d29e-566e-e6a4515dcb42">
-    <dmn12:extensionElements>
-      <ino:profilename value="ROOT PROFILE" />
-      <ino:stereotypename value="structure" />
-    </dmn12:extensionElements>
-    <dmn12:itemComponent name="Kennzeichen" id="_8bd16a87-9158-59af-2329-872a915e5c1f">
-      <dmn12:extensionElements>
-        <ino:profilename value="ROOT PROFILE" />
-        <ino:stereotypename value="structureEntry" />
-      </dmn12:extensionElements>
-      <dmn12:typeRef>string</dmn12:typeRef>
-    </dmn12:itemComponent>
-    <dmn12:itemComponent name="Typ" id="_f6eef8c7-f217-d2fd-f2e4-7d5782962b89">
-      <dmn12:extensionElements>
-        <ino:profilename value="ROOT PROFILE" />
-        <ino:stereotypename value="structureEntry" />
-      </dmn12:extensionElements>
-      <dmn12:typeRef>string</dmn12:typeRef>
-    </dmn12:itemComponent>
-    <dmn12:itemComponent name="Klasse" id="_fc1f1569-a1fb-49ad-ab92-c93c318e1e94">
-      <dmn12:extensionElements>
-        <ino:profilename value="ROOT PROFILE" />
-        <ino:stereotypename value="structureEntry" />
-      </dmn12:extensionElements>
-      <dmn12:typeRef>string</dmn12:typeRef>
-      <dmn12:allowedValues>
-        <dmn12:text>"Kompakt","Mittelklasse","Premium","Sport"</dmn12:text>
-      </dmn12:allowedValues>
-    </dmn12:itemComponent>
-  </dmn12:itemDefinition>
-  <dmn12:itemDefinition name="Rückgabeprotokoll" id="_fd797297-9298-c145-1207-fcec33fcf0aa">
-    <dmn12:extensionElements>
-      <ino:profilename value="ROOT PROFILE" />
-      <ino:stereotypename value="structure" />
-    </dmn12:extensionElements>
-    <dmn12:itemComponent name="Kilometerstand" id="_01053601-7577-659e-7cd2-650e46c5a760">
-      <dmn12:extensionElements>
-        <ino:profilename value="ROOT PROFILE" />
-        <ino:stereotypename value="structureEntry" />
-      </dmn12:extensionElements>
-      <dmn12:typeRef>number</dmn12:typeRef>
-    </dmn12:itemComponent>
-    <dmn12:itemComponent name="Zubehör vollständig" id="_0b5d794c-0a2a-f9ab-9571-274cfe39f3b9">
-      <dmn12:extensionElements>
-        <ino:profilename value="ROOT PROFILE" />
-        <ino:stereotypename value="structureEntry" />
-      </dmn12:extensionElements>
-      <dmn12:typeRef>boolean</dmn12:typeRef>
-    </dmn12:itemComponent>
-    <dmn12:itemComponent name="Beschädigungen" id="_4b4c52b8-7835-ee54-d6f7-18139578ae28">
-      <dmn12:extensionElements>
-        <ino:profilename value="ROOT PROFILE" />
-        <ino:stereotypename value="structureEntry" />
-      </dmn12:extensionElements>
-      <dmn12:typeRef>number</dmn12:typeRef>
-    </dmn12:itemComponent>
-    <dmn12:itemComponent name="Verschmutzungsgrad" id="_3dc8e705-308e-89ad-36e3-800114967bdf">
-      <dmn12:extensionElements>
-        <ino:profilename value="ROOT PROFILE" />
-        <ino:stereotypename value="structureEntry" />
-      </dmn12:extensionElements>
-      <dmn12:typeRef>number</dmn12:typeRef>
-    </dmn12:itemComponent>
-    <dmn12:itemComponent name="Genutzte Tage" id="_d77f75e5-260e-071c-f925-2b923318eb6c">
-      <dmn12:extensionElements>
-        <ino:profilename value="ROOT PROFILE" />
-        <ino:stereotypename value="structureEntry" />
-      </dmn12:extensionElements>
-      <dmn12:typeRef>number</dmn12:typeRef>
-    </dmn12:itemComponent>
-    <dmn12:itemComponent name="Vollgetankt" id="_570efda9-f781-193a-fb15-f2e569380fb7">
-      <dmn12:extensionElements>
-        <ino:profilename value="ROOT PROFILE" />
-        <ino:stereotypename value="structureEntry" />
-      </dmn12:extensionElements>
-      <dmn12:typeRef>boolean</dmn12:typeRef>
-    </dmn12:itemComponent>
-  </dmn12:itemDefinition>
-  <dmn12:inputData name="Mietvertragsdaten" id="_5f1cf758-c4d5-71e6-6edf-0f3fc152e16c">
-    <dmn12:extensionElements>
-      <ino:profilename value="ROOT PROFILE" />
-      <ino:stereotypename value="inputData" />
-    </dmn12:extensionElements>
-    <dmn12:variable name="Mietvertragsdaten" id="_fb97f9bb-6e6b-54af-24fe-f0b711911382" typeRef="Mietvertragsdaten"></dmn12:variable>
-  </dmn12:inputData>
-  <dmn12:inputData name="Fahrzeug" id="_63cca905-f4f3-e4be-bbaf-40180f8abd33">
-    <dmn12:extensionElements>
-      <ino:profilename value="ROOT PROFILE" />
-      <ino:stereotypename value="inputData" />
-    </dmn12:extensionElements>
-    <dmn12:variable name="Fahrzeug" id="_0996c52c-3f30-be56-f159-c970b1891e70" typeRef="Fahrzeug"></dmn12:variable>
-  </dmn12:inputData>
-  <dmn12:inputData name="Rückgabeprotokoll" id="_477d6a17-6eb2-5237-7da1-6e701b03c313">
-    <dmn12:extensionElements>
-      <ino:profilename value="ROOT PROFILE" />
-      <ino:stereotypename value="inputData" />
-    </dmn12:extensionElements>
-    <dmn12:variable name="Rückgabeprotokoll" id="_ce60040b-3e3c-8bd7-ad1a-93e07f78740d" typeRef="Rückgabeprotokoll"></dmn12:variable>
-  </dmn12:inputData>
-  <dmn12:businessKnowledgeModel name="Wert Fahrzeugzubehör" id="_58117bf9-a62c-16e9-21c5-707c0bbbdfd9">
-    <dmn12:extensionElements>
-      <ino:profilename value="ROOT PROFILE" />
-      <ino:stereotypename value="businessKnowledgeModel" />
-    </dmn12:extensionElements>
-    <dmn12:variable name="Wert Fahrzeugzubehör" id="_34a5a8d4-c86b-c894-d3d5-2dbfe6571d33"></dmn12:variable>
-    <dmn12:encapsulatedLogic id="_fd6fcdee-e6d7-128a-8db5-77492efc7834">
-      <dmn12:formalParameter name="fzg" id="_37355a77-f0d3-cb6f-6be6-d593dfc7122f" typeRef="Fahrzeug"></dmn12:formalParameter>
-      <dmn12:formalParameter name="zubehoer" id="_8cb643a2-f1e3-57c4-43be-d2b698756a62" typeRef="string"></dmn12:formalParameter>
-      <dmn12:decisionTable id="_e3674dc4-b5d5-52bb-f181-579998a5eab5" hitPolicy="COLLECT" aggregation="SUM" preferredOrientation="Rule-as-Row">
-        <dmn12:input id="_ade8cc35-5e06-0056-bb7e-561c1e0a83c2" label="par">
-          <dmn12:inputExpression>
-            <dmn12:text>fzg.Klasse</dmn12:text>
-          </dmn12:inputExpression>
-        </dmn12:input>
-        <dmn12:input id="_2f767f17-4c9c-7ab4-f65c-0d20e4a3de63" label="par_2">
-          <dmn12:inputExpression>
-            <dmn12:text>zubehoer</dmn12:text>
-          </dmn12:inputExpression>
-        </dmn12:input>
-        <dmn12:output id="_6f741edf-de1e-fef6-752d-59cbfdb4246c"></dmn12:output>
-        <dmn12:rule id="_ceae5540-ede9-3878-a59e-e7bff62c76d7">
-          <dmn12:inputEntry>
-            <dmn12:text>"Premium"</dmn12:text>
-          </dmn12:inputEntry>
-          <dmn12:inputEntry>
-            <dmn12:text>"Kindersitz"</dmn12:text>
-          </dmn12:inputEntry>
-          <dmn12:outputEntry>
-            <dmn12:text>500</dmn12:text>
-          </dmn12:outputEntry>
-        </dmn12:rule>
-        <dmn12:rule id="_fec20a1e-42fa-1048-e446-f0f3e2c4c8d6">
-          <dmn12:inputEntry>
-            <dmn12:text>"Premium"</dmn12:text>
-          </dmn12:inputEntry>
-          <dmn12:inputEntry>
-            <dmn12:text>"Navigation"</dmn12:text>
-          </dmn12:inputEntry>
-          <dmn12:outputEntry>
-            <dmn12:text>1500</dmn12:text>
-          </dmn12:outputEntry>
-        </dmn12:rule>
-        <dmn12:rule id="_8988f74a-1ce0-4bcb-a12f-f6c7d4c7b394">
-          <dmn12:inputEntry>
-            <dmn12:text>"Mittelklasse"</dmn12:text>
-          </dmn12:inputEntry>
-          <dmn12:inputEntry>
-            <dmn12:text>"Kindersitz"</dmn12:text>
-          </dmn12:inputEntry>
-          <dmn12:outputEntry>
-            <dmn12:text>300</dmn12:text>
-          </dmn12:outputEntry>
-        </dmn12:rule>
-        <dmn12:rule id="_a8b68743-2f79-702c-bb5d-97929e352506">
-          <dmn12:inputEntry>
-            <dmn12:text>"Kompakt"</dmn12:text>
-          </dmn12:inputEntry>
-          <dmn12:inputEntry>
-            <dmn12:text>"Kindersitz"</dmn12:text>
-          </dmn12:inputEntry>
-          <dmn12:outputEntry>
-            <dmn12:text>200</dmn12:text>
-          </dmn12:outputEntry>
-        </dmn12:rule>
-        <dmn12:rule id="_329416b6-3275-fb1d-e3f9-e40f7644e82b">
-          <dmn12:inputEntry>
-            <dmn12:text>"Kompakt"</dmn12:text>
-          </dmn12:inputEntry>
-          <dmn12:inputEntry>
-            <dmn12:text>"Navigation"</dmn12:text>
-          </dmn12:inputEntry>
-          <dmn12:outputEntry>
-            <dmn12:text>800</dmn12:text>
-          </dmn12:outputEntry>
-        </dmn12:rule>
-        <dmn12:rule id="_a04168ec-eed2-8730-2d73-0f4627ac1cfc">
-          <dmn12:inputEntry>
-            <dmn12:text>"Mittelklasse"</dmn12:text>
-          </dmn12:inputEntry>
-          <dmn12:inputEntry>
-            <dmn12:text>"Navigation"</dmn12:text>
-          </dmn12:inputEntry>
-          <dmn12:outputEntry>
-            <dmn12:text>1000</dmn12:text>
-          </dmn12:outputEntry>
-        </dmn12:rule>
-        <dmn12:rule id="_c04ee6d8-e27d-220d-466f-2f10b0d33508">
-          <dmn12:inputEntry>
-            <dmn12:text>"Sport"</dmn12:text>
-          </dmn12:inputEntry>
-          <dmn12:inputEntry>
-            <dmn12:text>"Navigation"</dmn12:text>
-          </dmn12:inputEntry>
-          <dmn12:outputEntry>
-            <dmn12:text>1500</dmn12:text>
-          </dmn12:outputEntry>
-        </dmn12:rule>
-      </dmn12:decisionTable>
-    </dmn12:encapsulatedLogic>
-  </dmn12:businessKnowledgeModel>
-  <dmn12:businessKnowledgeModel name="Selbstbehalt" id="_18d15ebd-bdc3-2d76-70c8-578e43b592d1">
-    <dmn12:extensionElements>
-      <ino:profilename value="ROOT PROFILE" />
-      <ino:stereotypename value="businessKnowledgeModel" />
-    </dmn12:extensionElements>
-    <dmn12:variable name="Selbstbehalt" id="_5678f712-9693-e87b-392a-f555888099c6" typeRef="number"></dmn12:variable>
-    <dmn12:encapsulatedLogic id="_16c85b02-84a4-c29d-435e-b7954e3cc471">
-      <dmn12:formalParameter name="Vertrag" id="_9ad0c5f4-668a-e850-e951-6b4ad4bec8c0" typeRef="Mietvertragsdaten"></dmn12:formalParameter>
-      <dmn12:decisionTable id="_41b665a7-f9b9-3489-a0e0-cf6ceb991977" hitPolicy="UNIQUE" preferredOrientation="Rule-as-Row">
-        <dmn12:input id="_b1c4fb83-8591-fa52-8a26-e6872d5b4a5d" label="Vertrag">
-          <dmn12:inputExpression>
-            <dmn12:text>Vertrag.Deckungsart</dmn12:text>
-          </dmn12:inputExpression>
-        </dmn12:input>
-        <dmn12:output id="_8e102bc3-bc8e-fcaa-5b7f-31f6953bb714"></dmn12:output>
-        <dmn12:rule id="_c2c8c0d0-6eed-222a-ad40-1cd9c1b7fee2">
-          <dmn12:inputEntry>
-            <dmn12:text>"Standard"</dmn12:text>
-          </dmn12:inputEntry>
-          <dmn12:outputEntry>
-            <dmn12:text>5000</dmn12:text>
-          </dmn12:outputEntry>
-        </dmn12:rule>
-        <dmn12:rule id="_bc86ea76-c2c2-ec9c-4c48-6d740bf54936">
-          <dmn12:inputEntry>
-            <dmn12:text>"Business"</dmn12:text>
-          </dmn12:inputEntry>
-          <dmn12:outputEntry>
-            <dmn12:text>2000</dmn12:text>
-          </dmn12:outputEntry>
-        </dmn12:rule>
-        <dmn12:rule id="_2482dc9c-ece3-7194-05e2-76831bfeb964">
-          <dmn12:inputEntry>
-            <dmn12:text>"Premium"</dmn12:text>
-          </dmn12:inputEntry>
-          <dmn12:outputEntry>
-            <dmn12:text>0</dmn12:text>
-          </dmn12:outputEntry>
-        </dmn12:rule>
-      </dmn12:decisionTable>
-    </dmn12:encapsulatedLogic>
-  </dmn12:businessKnowledgeModel>
-  <dmn12:decision name="Abrechnung erstellen" id="_85712ca9-94fc-8273-a4f0-31f5a37241d4">
-    <dmn12:extensionElements>
-      <ino:profilename value="ROOT PROFILE" />
-      <ino:stereotypename value="decision" />
-    </dmn12:extensionElements>
-    <dmn12:variable name="Abrechnung erstellen" id="_ea87bb5d-9eda-467d-a734-356df69c2b25" typeRef="string"></dmn12:variable>
-    <dmn12:informationRequirement>
-      <dmn12:requiredDecision href="#_b7f59d4a-3b2d-d6c8-710c-6ce6c8b5bd63" />
-    </dmn12:informationRequirement>
-    <dmn12:informationRequirement>
-      <dmn12:requiredDecision href="#_749815fe-d0f5-8e17-2ccc-ef739bfacadd" />
-    </dmn12:informationRequirement>
-    <dmn12:informationRequirement>
-      <dmn12:requiredDecision href="#_bfe7a1bd-90b9-8e1a-86ed-eb9fd2943831" />
-    </dmn12:informationRequirement>
-    <dmn12:informationRequirement>
-      <dmn12:requiredInput href="#_5f1cf758-c4d5-71e6-6edf-0f3fc152e16c" />
-    </dmn12:informationRequirement>
-    <dmn12:usingProcess href="inno:///Demo_202212161058/INOX/Enterprise%20Modeling%20Autovermietung?uuid=3eab8eff-878d-f317-532c-b0c4a2f490fa" />
-    <dmn12:usingTask href="inno:///Demo_202212161058/INOX/Enterprise%20Modeling%20Autovermietung?uuid=f6791efe-3e19-60b8-28cf-1e4f0a649a1b" />
-    <dmn12:decisionTable id="_165fea78-f867-becf-52d7-490d60372051" hitPolicy="UNIQUE" preferredOrientation="Rule-as-Row">
-      <dmn12:input id="_bdba0c84-6691-0fb7-9243-2fa44ef5d08d" label="Input">
-        <dmn12:inputExpression>
-          <dmn12:text>Reparaturkosten
- + Überziehungsstrafe
- + Fehlendes Zubehör
- - Mietvertragsdaten.Kautionssumme</dmn12:text>
-        </dmn12:inputExpression>
-      </dmn12:input>
-      <dmn12:output id="_ccd49aa4-ace5-44a7-c251-4f4dcb950800"></dmn12:output>
-      <dmn12:rule id="_a4e85313-7300-7749-5e33-bba4c9f51e7c">
-        <dmn12:inputEntry>
-          <dmn12:text>&gt; 0</dmn12:text>
-        </dmn12:inputEntry>
-        <dmn12:outputEntry>
-          <dmn12:text>"Nachforderung"</dmn12:text>
-        </dmn12:outputEntry>
-      </dmn12:rule>
-      <dmn12:rule id="_98c1ee9f-3b88-9c48-a901-0bdd04b3f819">
-        <dmn12:inputEntry>
-          <dmn12:text>&lt; 0</dmn12:text>
-        </dmn12:inputEntry>
-        <dmn12:outputEntry>
-          <dmn12:text>"Rückerstattung"</dmn12:text>
-        </dmn12:outputEntry>
-      </dmn12:rule>
-      <dmn12:rule id="_11f299b4-b76f-be5b-3172-d862a4ee1ca9">
-        <dmn12:inputEntry>
-          <dmn12:text>0</dmn12:text>
-        </dmn12:inputEntry>
-        <dmn12:outputEntry>
-          <dmn12:text>"keine"</dmn12:text>
-        </dmn12:outputEntry>
-      </dmn12:rule>
-    </dmn12:decisionTable>
-  </dmn12:decision>
-  <dmn12:decision name="Überziehungsstrafe" id="_749815fe-d0f5-8e17-2ccc-ef739bfacadd">
-    <dmn12:extensionElements>
-      <ino:profilename value="ROOT PROFILE" />
-      <ino:stereotypename value="decision" />
-    </dmn12:extensionElements>
-    <dmn12:variable name="Überziehungsstrafe" id="_2cc1e773-85dc-fcb4-c257-7e238e9570d1" typeRef="number"></dmn12:variable>
-    <dmn12:informationRequirement>
-      <dmn12:requiredInput href="#_5f1cf758-c4d5-71e6-6edf-0f3fc152e16c" />
-    </dmn12:informationRequirement>
-    <dmn12:informationRequirement>
-      <dmn12:requiredInput href="#_477d6a17-6eb2-5237-7da1-6e701b03c313" />
-    </dmn12:informationRequirement>
-    <dmn12:context id="_4a47d178-db72-ec0f-4a5a-04cb9129879a">
-      <dmn12:contextEntry>
-        <dmn12:variable name="Überziehungstage" id="_3e82d130-58ad-8a6c-2413-e91ae10122c6" typeRef="number"></dmn12:variable>
-        <dmn12:literalExpression id="_3e9c9163-4d8e-b7f9-d4a0-e4a0cd1da9ba">
-          <dmn12:text>Mietvertragsdaten.Vermietete Tage - Rückgabeprotokoll.Genutzte Tage</dmn12:text>
-        </dmn12:literalExpression>
-      </dmn12:contextEntry>
-      <dmn12:contextEntry>
-        <dmn12:variable name="Strafe Tagessatz" id="_408be09e-01fd-e4e9-5a67-43f53d4623ba" typeRef="number"></dmn12:variable>
-        <dmn12:decisionTable id="_8b6d5afc-3b93-6aa5-8089-72bef6fdbaa9" hitPolicy="UNIQUE" preferredOrientation="Rule-as-Row">
-          <dmn12:input id="_5a5bda41-c433-1b4a-3f0f-9da98626b3f4" label="Input">
-            <dmn12:inputExpression>
-              <dmn12:text>Überziehungstage</dmn12:text>
-            </dmn12:inputExpression>
-          </dmn12:input>
-          <dmn12:output id="_6478957e-b3ac-526f-addf-fef33bcc477d"></dmn12:output>
-          <dmn12:rule id="_ed0ab8fb-3efd-8160-399a-1e30d9273548">
-            <dmn12:inputEntry>
-              <dmn12:text>&lt;= 0</dmn12:text>
-            </dmn12:inputEntry>
-            <dmn12:outputEntry>
-              <dmn12:text>0</dmn12:text>
-            </dmn12:outputEntry>
-          </dmn12:rule>
-          <dmn12:rule id="_3aabc8e6-5ad1-24b2-574c-23c10be4805e">
-            <dmn12:inputEntry>
-              <dmn12:text>[1..2]</dmn12:text>
-            </dmn12:inputEntry>
-            <dmn12:outputEntry>
-              <dmn12:text>200</dmn12:text>
-            </dmn12:outputEntry>
-          </dmn12:rule>
-          <dmn12:rule id="_d3a763b5-8f31-d91d-d591-a6474cc3b729">
-            <dmn12:inputEntry>
-              <dmn12:text>[3..5]</dmn12:text>
-            </dmn12:inputEntry>
-            <dmn12:outputEntry>
-              <dmn12:text>500</dmn12:text>
-            </dmn12:outputEntry>
-          </dmn12:rule>
-          <dmn12:rule id="_25e57077-fe60-0277-7b8e-1fedb8adb4d2">
-            <dmn12:inputEntry>
-              <dmn12:text>&gt; 5</dmn12:text>
-            </dmn12:inputEntry>
-            <dmn12:outputEntry>
-              <dmn12:text>700</dmn12:text>
-            </dmn12:outputEntry>
-          </dmn12:rule>
-        </dmn12:decisionTable>
-      </dmn12:contextEntry>
-      <dmn12:contextEntry>
-        <dmn12:literalExpression id="_bdbec71a-feff-bf07-71e4-6d247ffe4551">
-          <dmn12:text>if Strafe Tagessatz &gt; 0 then Überziehungstage * Strafe Tagessatz else 0</dmn12:text>
-        </dmn12:literalExpression>
-      </dmn12:contextEntry>
-    </dmn12:context>
-  </dmn12:decision>
-  <dmn12:decision name="Reparaturkosten" id="_b7f59d4a-3b2d-d6c8-710c-6ce6c8b5bd63">
-    <dmn12:extensionElements>
-      <ino:profilename value="ROOT PROFILE" />
-      <ino:stereotypename value="decision" />
-    </dmn12:extensionElements>
-    <dmn12:variable name="Reparaturkosten" id="_76f29d4a-ea79-71b3-9b00-66da02ad21a2" typeRef="number"></dmn12:variable>
-    <dmn12:informationRequirement>
-      <dmn12:requiredInput href="#_5f1cf758-c4d5-71e6-6edf-0f3fc152e16c" />
-    </dmn12:informationRequirement>
-    <dmn12:informationRequirement>
-      <dmn12:requiredInput href="#_477d6a17-6eb2-5237-7da1-6e701b03c313" />
-    </dmn12:informationRequirement>
-    <dmn12:knowledgeRequirement>
-      <dmn12:requiredKnowledge href="#_18d15ebd-bdc3-2d76-70c8-578e43b592d1" />
-    </dmn12:knowledgeRequirement>
-    <dmn12:decisionTable id="_e35a6379-98c3-7573-e3ea-690de3257c2c" hitPolicy="UNIQUE" preferredOrientation="Rule-as-Row">
-      <dmn12:input id="_79bafd65-0989-2749-968f-e4115c085e20" label="Input">
-        <dmn12:inputExpression>
-          <dmn12:text>Selbstbehalt(Mietvertragsdaten)</dmn12:text>
-        </dmn12:inputExpression>
-      </dmn12:input>
-      <dmn12:input id="_fd1add2b-5473-0c2c-00d4-2709323d2c50" label="Input_2">
-        <dmn12:inputExpression>
-          <dmn12:text>Rückgabeprotokoll.Beschädigungen</dmn12:text>
-        </dmn12:inputExpression>
-      </dmn12:input>
-      <dmn12:output id="_da9f6284-7928-9241-6825-6806bb803b2d"></dmn12:output>
-      <dmn12:rule id="_2a41e9a1-5372-86cc-218c-a4c4983f92cb">
-        <dmn12:inputEntry>
-          <dmn12:text>-</dmn12:text>
-        </dmn12:inputEntry>
-        <dmn12:inputEntry>
-          <dmn12:text>0</dmn12:text>
-        </dmn12:inputEntry>
-        <dmn12:outputEntry>
-          <dmn12:text>0</dmn12:text>
-        </dmn12:outputEntry>
-      </dmn12:rule>
-      <dmn12:rule id="_10a82833-ef7e-05c9-3d59-dfd69b56588a">
-        <dmn12:inputEntry>
-          <dmn12:text>&lt; 0</dmn12:text>
-        </dmn12:inputEntry>
-        <dmn12:inputEntry>
-          <dmn12:text>&gt; 0</dmn12:text>
-        </dmn12:inputEntry>
-        <dmn12:outputEntry>
-          <dmn12:text>Rückgabeprotokoll.Beschädigungen</dmn12:text>
-        </dmn12:outputEntry>
-      </dmn12:rule>
-      <dmn12:rule id="_e06b9e30-17a2-ed74-e58f-227892bd2989">
-        <dmn12:inputEntry>
-          <dmn12:text>0</dmn12:text>
-        </dmn12:inputEntry>
-        <dmn12:inputEntry>
-          <dmn12:text>&gt; 0</dmn12:text>
-        </dmn12:inputEntry>
-        <dmn12:outputEntry>
-          <dmn12:text>0</dmn12:text>
-        </dmn12:outputEntry>
-      </dmn12:rule>
-      <dmn12:rule id="_41b0cc79-e279-7480-8c58-f1e944fa4109">
-        <dmn12:inputEntry>
-          <dmn12:text>&gt; 0</dmn12:text>
-        </dmn12:inputEntry>
-        <dmn12:inputEntry>
-          <dmn12:text>&gt; 0</dmn12:text>
-        </dmn12:inputEntry>
-        <dmn12:outputEntry>
-          <dmn12:text>if (Rückgabeprotokoll.Beschädigungen &lt;=
-Selbstbehalt(Mietvertragsdaten) ) 
+<?xml version="1.0" encoding="UTF-8"?>
+<dmn:definitions xmlns:dmn="http://www.omg.org/spec/DMN/20180521/MODEL/" xmlns="http://sample.dmn.mid.de/" xmlns:ino="http://www.mid.de/spec/Innovator/14.2.1" xmlns:feel="http://www.omg.org/spec/DMN/20180521/FEEL/" xmlns:kie="http://www.drools.org/kie/dmn/1.2" xmlns:dmndi="http://www.omg.org/spec/DMN/20180521/DMNDI/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" id="def_ef4d3089-c2dd-cb2b-662e-79c2d364ab66" name="Mietvertragsabrechnung erstellen" expressionLanguage="FEEL" typeLanguage="http://www.omg.org/spec/DMN/20180521/FEEL/" namespace="http://sample.dmn.mid.de/">
+  <dmn:extensionElements/>
+  <dmn:itemDefinition id="_f695abb3-6599-ed9f-1396-0a1300e50be5" name="Mietvertragsdaten" isCollection="false">
+    <dmn:itemComponent id="_396ab1a9-203d-eba8-2ef3-2f39a5462604" name="Frei-KM" isCollection="false">
+      <dmn:typeRef>number</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_03622cbc-5362-8969-b651-02223115bd52" name="Fahrzeug-KM" isCollection="false">
+      <dmn:typeRef>number</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_900256cb-66e9-805b-755b-e758bf76dccb" name="Vermietete Tage" isCollection="false">
+      <dmn:typeRef>number</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_e0f897fa-3883-87dc-7ebe-f62aa6588717" name="Kautionssumme" isCollection="false">
+      <dmn:typeRef>number</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_0d83ca76-0537-296a-be32-726c9cb5745a" name="Enthaltenes Zubehör" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_fbb1a128-5d13-847b-dcb2-66ec6aed7360" name="Deckungsart" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+  </dmn:itemDefinition>
+  <dmn:itemDefinition id="_571b0acd-c595-d29e-566e-e6a4515dcb42" name="Fahrzeug" isCollection="false">
+    <dmn:itemComponent id="_8bd16a87-9158-59af-2329-872a915e5c1f" name="Kennzeichen" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_f6eef8c7-f217-d2fd-f2e4-7d5782962b89" name="Typ" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_fc1f1569-a1fb-49ad-ab92-c93c318e1e94" name="Klasse" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+      <dmn:allowedValues id="_AC62E396-16F0-42BA-AC4E-2BA27C1E4B64">
+        <dmn:text>"Kompakt","Mittelklasse","Premium","Sport"</dmn:text>
+      </dmn:allowedValues>
+    </dmn:itemComponent>
+  </dmn:itemDefinition>
+  <dmn:itemDefinition id="_fd797297-9298-c145-1207-fcec33fcf0aa" name="Rückgabeprotokoll" isCollection="false">
+    <dmn:itemComponent id="_01053601-7577-659e-7cd2-650e46c5a760" name="Kilometerstand" isCollection="false">
+      <dmn:typeRef>number</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_0b5d794c-0a2a-f9ab-9571-274cfe39f3b9" name="Zubehör vollständig" isCollection="false">
+      <dmn:typeRef>boolean</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_4b4c52b8-7835-ee54-d6f7-18139578ae28" name="Beschädigungen" isCollection="false">
+      <dmn:typeRef>number</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_3dc8e705-308e-89ad-36e3-800114967bdf" name="Verschmutzungsgrad" isCollection="false">
+      <dmn:typeRef>number</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_d77f75e5-260e-071c-f925-2b923318eb6c" name="Genutzte Tage" isCollection="false">
+      <dmn:typeRef>number</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_570efda9-f781-193a-fb15-f2e569380fb7" name="Vollgetankt" isCollection="false">
+      <dmn:typeRef>boolean</dmn:typeRef>
+    </dmn:itemComponent>
+  </dmn:itemDefinition>
+  <dmn:inputData id="_5f1cf758-c4d5-71e6-6edf-0f3fc152e16c" name="Mietvertragsdaten">
+    <dmn:extensionElements/>
+    <dmn:variable id="_fb97f9bb-6e6b-54af-24fe-f0b711911382" name="Mietvertragsdaten" typeRef="Mietvertragsdaten"/>
+  </dmn:inputData>
+  <dmn:inputData id="_63cca905-f4f3-e4be-bbaf-40180f8abd33" name="Fahrzeug">
+    <dmn:extensionElements/>
+    <dmn:variable id="_0996c52c-3f30-be56-f159-c970b1891e70" name="Fahrzeug" typeRef="Fahrzeug"/>
+  </dmn:inputData>
+  <dmn:inputData id="_477d6a17-6eb2-5237-7da1-6e701b03c313" name="Rückgabeprotokoll">
+    <dmn:extensionElements/>
+    <dmn:variable id="_ce60040b-3e3c-8bd7-ad1a-93e07f78740d" name="Rückgabeprotokoll" typeRef="Rückgabeprotokoll"/>
+  </dmn:inputData>
+  <dmn:businessKnowledgeModel id="_58117bf9-a62c-16e9-21c5-707c0bbbdfd9" name="Wert Fahrzeugzubehör">
+    <dmn:extensionElements/>
+    <dmn:variable id="_34a5a8d4-c86b-c894-d3d5-2dbfe6571d33" name="Wert Fahrzeugzubehör" typeRef="number"/>
+    <dmn:encapsulatedLogic id="_fd6fcdee-e6d7-128a-8db5-77492efc7834" kind="FEEL">
+      <dmn:formalParameter id="_37355a77-f0d3-cb6f-6be6-d593dfc7122f" name="fzg" typeRef="Fahrzeug"/>
+      <dmn:formalParameter id="_8cb643a2-f1e3-57c4-43be-d2b698756a62" name="zubehoer" typeRef="string"/>
+      <dmn:decisionTable id="_e3674dc4-b5d5-52bb-f181-579998a5eab5" hitPolicy="COLLECT" aggregation="SUM" preferredOrientation="Rule-as-Row">
+        <dmn:input id="_ade8cc35-5e06-0056-bb7e-561c1e0a83c2">
+          <dmn:inputExpression id="_0D8B9D8B-001B-465F-907A-ED6968E9952F">
+            <dmn:text>fzg.Klasse</dmn:text>
+          </dmn:inputExpression>
+        </dmn:input>
+        <dmn:input id="_2f767f17-4c9c-7ab4-f65c-0d20e4a3de63">
+          <dmn:inputExpression id="_115FEB61-F5FF-49F0-B284-21F2F25038E0">
+            <dmn:text>zubehoer</dmn:text>
+          </dmn:inputExpression>
+        </dmn:input>
+        <dmn:output id="_6f741edf-de1e-fef6-752d-59cbfdb4246c"/>
+        <dmn:annotation name=""/>
+        <dmn:rule id="_ceae5540-ede9-3878-a59e-e7bff62c76d7">
+          <dmn:inputEntry id="_E2AE672D-4146-4BF4-8E27-4E5F8A23540D">
+            <dmn:text>"Premium"</dmn:text>
+          </dmn:inputEntry>
+          <dmn:inputEntry id="_00629535-B785-46E5-B301-1805C95224E2">
+            <dmn:text>"Kindersitz"</dmn:text>
+          </dmn:inputEntry>
+          <dmn:outputEntry id="_0FC2DEE2-8FE6-420B-BE5F-670A596B3BE8">
+            <dmn:text>500</dmn:text>
+          </dmn:outputEntry>
+          <dmn:annotationEntry>
+            <dmn:text/>
+          </dmn:annotationEntry>
+        </dmn:rule>
+        <dmn:rule id="_fec20a1e-42fa-1048-e446-f0f3e2c4c8d6">
+          <dmn:inputEntry id="_C46E9CEC-8C7A-4248-BFC9-42E38DF1A194">
+            <dmn:text>"Premium"</dmn:text>
+          </dmn:inputEntry>
+          <dmn:inputEntry id="_2874FB1B-3C1F-4DF3-A4AE-BD515F1B80D3">
+            <dmn:text>"Navigation"</dmn:text>
+          </dmn:inputEntry>
+          <dmn:outputEntry id="_EE4F8B89-C968-4535-A43C-6292227AF58F">
+            <dmn:text>1500</dmn:text>
+          </dmn:outputEntry>
+          <dmn:annotationEntry>
+            <dmn:text/>
+          </dmn:annotationEntry>
+        </dmn:rule>
+        <dmn:rule id="_8988f74a-1ce0-4bcb-a12f-f6c7d4c7b394">
+          <dmn:inputEntry id="_646ACFD1-EAF7-4694-959B-C08ABBE69F79">
+            <dmn:text>"Mittelklasse"</dmn:text>
+          </dmn:inputEntry>
+          <dmn:inputEntry id="_DB43CDBC-7413-49F6-824E-36FF15DE2649">
+            <dmn:text>"Kindersitz"</dmn:text>
+          </dmn:inputEntry>
+          <dmn:outputEntry id="_18C32DA3-BC8A-430D-AC9B-A9FCCE51D68D">
+            <dmn:text>300</dmn:text>
+          </dmn:outputEntry>
+          <dmn:annotationEntry>
+            <dmn:text/>
+          </dmn:annotationEntry>
+        </dmn:rule>
+        <dmn:rule id="_a8b68743-2f79-702c-bb5d-97929e352506">
+          <dmn:inputEntry id="_CE5869B9-5DEF-494D-89E2-0A7CBAAF058F">
+            <dmn:text>"Kompakt"</dmn:text>
+          </dmn:inputEntry>
+          <dmn:inputEntry id="_D8AC0117-9E12-477B-B25E-C51652A9BDBF">
+            <dmn:text>"Kindersitz"</dmn:text>
+          </dmn:inputEntry>
+          <dmn:outputEntry id="_4D0504CD-73D4-4481-A5EF-964ECF0A3E7A">
+            <dmn:text>200</dmn:text>
+          </dmn:outputEntry>
+          <dmn:annotationEntry>
+            <dmn:text/>
+          </dmn:annotationEntry>
+        </dmn:rule>
+        <dmn:rule id="_329416b6-3275-fb1d-e3f9-e40f7644e82b">
+          <dmn:inputEntry id="_77660A57-7496-47A0-A0A3-A3C06776F07B">
+            <dmn:text>"Kompakt"</dmn:text>
+          </dmn:inputEntry>
+          <dmn:inputEntry id="_6BA84D56-110D-4E21-A579-D8A7628DB688">
+            <dmn:text>"Navigation"</dmn:text>
+          </dmn:inputEntry>
+          <dmn:outputEntry id="_810D69C2-BCE2-47EF-A12B-0E22FC2F0D3B">
+            <dmn:text>800</dmn:text>
+          </dmn:outputEntry>
+          <dmn:annotationEntry>
+            <dmn:text/>
+          </dmn:annotationEntry>
+        </dmn:rule>
+        <dmn:rule id="_a04168ec-eed2-8730-2d73-0f4627ac1cfc">
+          <dmn:inputEntry id="_653CB6FF-9179-409A-ABFD-32E3A752AAB6">
+            <dmn:text>"Mittelklasse"</dmn:text>
+          </dmn:inputEntry>
+          <dmn:inputEntry id="_81AC1C18-8280-455E-BAE1-3DE585DE0979">
+            <dmn:text>"Navigation"</dmn:text>
+          </dmn:inputEntry>
+          <dmn:outputEntry id="_E8C942B7-F448-46C6-99C1-7AD203B9F064">
+            <dmn:text>1000</dmn:text>
+          </dmn:outputEntry>
+          <dmn:annotationEntry>
+            <dmn:text/>
+          </dmn:annotationEntry>
+        </dmn:rule>
+        <dmn:rule id="_c04ee6d8-e27d-220d-466f-2f10b0d33508">
+          <dmn:inputEntry id="_957B86C2-04BF-4DB5-B7D3-C3941B97290B">
+            <dmn:text>"Sport"</dmn:text>
+          </dmn:inputEntry>
+          <dmn:inputEntry id="_F78B018F-BCA0-46CF-90EC-E160D07403C8">
+            <dmn:text>"Navigation"</dmn:text>
+          </dmn:inputEntry>
+          <dmn:outputEntry id="_8059EDC3-526A-4506-A648-B4D04CB26874">
+            <dmn:text>1500</dmn:text>
+          </dmn:outputEntry>
+          <dmn:annotationEntry>
+            <dmn:text/>
+          </dmn:annotationEntry>
+        </dmn:rule>
+      </dmn:decisionTable>
+    </dmn:encapsulatedLogic>
+  </dmn:businessKnowledgeModel>
+  <dmn:businessKnowledgeModel id="_18d15ebd-bdc3-2d76-70c8-578e43b592d1" name="Selbstbehalt">
+    <dmn:extensionElements/>
+    <dmn:variable id="_5678f712-9693-e87b-392a-f555888099c6" name="Selbstbehalt" typeRef="number"/>
+    <dmn:encapsulatedLogic id="_16c85b02-84a4-c29d-435e-b7954e3cc471" kind="FEEL">
+      <dmn:formalParameter id="_9ad0c5f4-668a-e850-e951-6b4ad4bec8c0" name="Vertrag" typeRef="Mietvertragsdaten"/>
+      <dmn:decisionTable id="_41b665a7-f9b9-3489-a0e0-cf6ceb991977" hitPolicy="UNIQUE" preferredOrientation="Rule-as-Row">
+        <dmn:input id="_b1c4fb83-8591-fa52-8a26-e6872d5b4a5d">
+          <dmn:inputExpression id="_C449B84B-A7A5-4A37-92C0-A1768F4BA0FF">
+            <dmn:text>Vertrag.Deckungsart</dmn:text>
+          </dmn:inputExpression>
+        </dmn:input>
+        <dmn:output id="_8e102bc3-bc8e-fcaa-5b7f-31f6953bb714"/>
+        <dmn:annotation name=""/>
+        <dmn:rule id="_c2c8c0d0-6eed-222a-ad40-1cd9c1b7fee2">
+          <dmn:inputEntry id="_0E1925A0-4BA8-4A16-83E5-462F63078967">
+            <dmn:text>"Standard"</dmn:text>
+          </dmn:inputEntry>
+          <dmn:outputEntry id="_D37C05D7-668A-4D34-8B9B-7651133E44F1">
+            <dmn:text>5000</dmn:text>
+          </dmn:outputEntry>
+          <dmn:annotationEntry>
+            <dmn:text/>
+          </dmn:annotationEntry>
+        </dmn:rule>
+        <dmn:rule id="_bc86ea76-c2c2-ec9c-4c48-6d740bf54936">
+          <dmn:inputEntry id="_3277FA82-0118-439B-9475-7C285D0C9127">
+            <dmn:text>"Business"</dmn:text>
+          </dmn:inputEntry>
+          <dmn:outputEntry id="_5117CAF7-4A36-491F-AC3A-42CE12EE50A5">
+            <dmn:text>2000</dmn:text>
+          </dmn:outputEntry>
+          <dmn:annotationEntry>
+            <dmn:text/>
+          </dmn:annotationEntry>
+        </dmn:rule>
+        <dmn:rule id="_2482dc9c-ece3-7194-05e2-76831bfeb964">
+          <dmn:inputEntry id="_02EAA374-6DE8-489D-8B5F-EF441166BF07">
+            <dmn:text>"Premium"</dmn:text>
+          </dmn:inputEntry>
+          <dmn:outputEntry id="_56E67708-8625-412A-AA20-41EF6010F14F">
+            <dmn:text>0</dmn:text>
+          </dmn:outputEntry>
+          <dmn:annotationEntry>
+            <dmn:text/>
+          </dmn:annotationEntry>
+        </dmn:rule>
+        <dmn:rule id="_87F2BEC9-3AF6-44D9-B350-5860ABAEAC05">
+          <dmn:inputEntry id="_4403385F-7038-4FE1-8C00-DBC618A4DEC1">
+            <dmn:text>-</dmn:text>
+          </dmn:inputEntry>
+          <dmn:outputEntry id="_625F8575-EDC1-4CF3-9985-CA5D8BD5BAB5">
+            <dmn:text>5000</dmn:text>
+          </dmn:outputEntry>
+          <dmn:annotationEntry>
+            <dmn:text/>
+          </dmn:annotationEntry>
+        </dmn:rule>
+      </dmn:decisionTable>
+    </dmn:encapsulatedLogic>
+  </dmn:businessKnowledgeModel>
+  <dmn:decision id="_85712ca9-94fc-8273-a4f0-31f5a37241d4" name="Abrechnung erstellen">
+    <dmn:extensionElements/>
+    <dmn:variable id="_ea87bb5d-9eda-467d-a734-356df69c2b25" name="Abrechnung erstellen" typeRef="string"/>
+    <dmn:informationRequirement id="_D0A6C4E3-F40E-46E4-99E7-F0F6D26548E2">
+      <dmn:requiredDecision href="#_b7f59d4a-3b2d-d6c8-710c-6ce6c8b5bd63"/>
+    </dmn:informationRequirement>
+    <dmn:informationRequirement id="_55C92664-D407-4370-9D34-B94BB7369EAF">
+      <dmn:requiredDecision href="#_749815fe-d0f5-8e17-2ccc-ef739bfacadd"/>
+    </dmn:informationRequirement>
+    <dmn:informationRequirement id="_1501F7BB-DF2E-4506-852A-C39E001DEE1B">
+      <dmn:requiredDecision href="#_bfe7a1bd-90b9-8e1a-86ed-eb9fd2943831"/>
+    </dmn:informationRequirement>
+    <dmn:informationRequirement id="_655026EE-1721-4CAA-8C84-42C80334A2CE">
+      <dmn:requiredInput href="#_5f1cf758-c4d5-71e6-6edf-0f3fc152e16c"/>
+    </dmn:informationRequirement>
+    <dmn:decisionTable id="_165fea78-f867-becf-52d7-490d60372051" hitPolicy="UNIQUE" preferredOrientation="Rule-as-Row">
+      <dmn:input id="_bdba0c84-6691-0fb7-9243-2fa44ef5d08d">
+        <dmn:inputExpression id="_08984DBC-EC79-49C8-B40A-062FAABF6762" typeRef="number">
+          <dmn:text>Reparaturkosten + Überziehungsstrafe + Fehlendes Zubehör - Mietvertragsdaten.Kautionssumme</dmn:text>
+        </dmn:inputExpression>
+      </dmn:input>
+      <dmn:output id="_CABBCCEC-5B9C-4CBA-A389-BC5D03464472" name="output-2" typeRef="number"/>
+      <dmn:output id="_ccd49aa4-ace5-44a7-c251-4f4dcb950800" name="Abrechnung erstellen" typeRef="string"/>
+      <dmn:annotation name=""/>
+      <dmn:rule id="_a4e85313-7300-7749-5e33-bba4c9f51e7c">
+        <dmn:inputEntry id="_C5682384-61A9-4DC0-A332-2FBD37A7C964">
+          <dmn:text>&gt; 0</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_04F263C4-74AA-4455-BE6E-E9DE716AA25A">
+          <dmn:text/>
+        </dmn:outputEntry>
+        <dmn:outputEntry id="_705275EC-64B1-40AF-A827-DBFEEDA182FF">
+          <dmn:text>"Nachforderung"</dmn:text>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text/>
+        </dmn:annotationEntry>
+      </dmn:rule>
+      <dmn:rule id="_98c1ee9f-3b88-9c48-a901-0bdd04b3f819">
+        <dmn:inputEntry id="_9A8E6C68-77C2-4EAE-9865-EE137C28FB38">
+          <dmn:text>&lt; 0</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_ADA2C284-8399-4EF5-B2AC-C17DF2A2A10A">
+          <dmn:text>Reparaturkosten + Überziehungsstrafe + Fehlendes Zubehör - Mietvertragsdaten.Kautionssumme</dmn:text>
+        </dmn:outputEntry>
+        <dmn:outputEntry id="_DD8ECE21-1F1E-499E-8CCA-8A0E77B6738B">
+          <dmn:text>"Rückerstattung"</dmn:text>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text/>
+        </dmn:annotationEntry>
+      </dmn:rule>
+      <dmn:rule id="_11f299b4-b76f-be5b-3172-d862a4ee1ca9">
+        <dmn:inputEntry id="_36E213B1-5325-467A-B984-9BECBFA77975">
+          <dmn:text>0</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_46F634E5-A5AB-4C0E-97D5-BC281284525F">
+          <dmn:text/>
+        </dmn:outputEntry>
+        <dmn:outputEntry id="_63EB430B-8F39-4D32-8980-E68CF5F4EF94">
+          <dmn:text>"keine"</dmn:text>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text/>
+        </dmn:annotationEntry>
+      </dmn:rule>
+    </dmn:decisionTable>
+  </dmn:decision>
+  <dmn:decision id="_749815fe-d0f5-8e17-2ccc-ef739bfacadd" name="Überziehungsstrafe">
+    <dmn:extensionElements/>
+    <dmn:variable id="_2cc1e773-85dc-fcb4-c257-7e238e9570d1" name="Überziehungsstrafe" typeRef="number"/>
+    <dmn:informationRequirement id="_5AF363E7-6044-48FE-B5A6-4699D5B1E30E">
+      <dmn:requiredInput href="#_5f1cf758-c4d5-71e6-6edf-0f3fc152e16c"/>
+    </dmn:informationRequirement>
+    <dmn:informationRequirement id="_E81FC6A8-37D1-479A-91A2-1AA017377950">
+      <dmn:requiredInput href="#_477d6a17-6eb2-5237-7da1-6e701b03c313"/>
+    </dmn:informationRequirement>
+    <dmn:context id="_4a47d178-db72-ec0f-4a5a-04cb9129879a">
+      <dmn:contextEntry>
+        <dmn:variable id="_3e82d130-58ad-8a6c-2413-e91ae10122c6" name="Überziehungstage" typeRef="number"/>
+        <dmn:literalExpression id="_3e9c9163-4d8e-b7f9-d4a0-e4a0cd1da9ba">
+          <dmn:text>Mietvertragsdaten.Vermietete Tage - Rückgabeprotokoll.Genutzte Tage</dmn:text>
+        </dmn:literalExpression>
+      </dmn:contextEntry>
+      <dmn:contextEntry>
+        <dmn:variable id="_408be09e-01fd-e4e9-5a67-43f53d4623ba" name="Strafe Tagessatz" typeRef="number"/>
+        <dmn:decisionTable id="_8b6d5afc-3b93-6aa5-8089-72bef6fdbaa9" hitPolicy="UNIQUE" preferredOrientation="Rule-as-Row">
+          <dmn:input id="_5a5bda41-c433-1b4a-3f0f-9da98626b3f4">
+            <dmn:inputExpression id="_D5DAE021-26E0-494F-9BFC-68BCE3F04EDC">
+              <dmn:text>Überziehungstage</dmn:text>
+            </dmn:inputExpression>
+          </dmn:input>
+          <dmn:output id="_6478957e-b3ac-526f-addf-fef33bcc477d"/>
+          <dmn:annotation name=""/>
+          <dmn:rule id="_ed0ab8fb-3efd-8160-399a-1e30d9273548">
+            <dmn:inputEntry id="_16945A7A-1CDD-4CF2-806D-E9A7FAA1AFC2">
+              <dmn:text>&lt;= 0</dmn:text>
+            </dmn:inputEntry>
+            <dmn:outputEntry id="_3384B8A1-3FB1-4B3C-BF58-F573016192FC">
+              <dmn:text>0</dmn:text>
+            </dmn:outputEntry>
+            <dmn:annotationEntry>
+              <dmn:text/>
+            </dmn:annotationEntry>
+          </dmn:rule>
+          <dmn:rule id="_3aabc8e6-5ad1-24b2-574c-23c10be4805e">
+            <dmn:inputEntry id="_01BBE233-7770-441E-A720-6F103F90202E">
+              <dmn:text>[1..2]</dmn:text>
+            </dmn:inputEntry>
+            <dmn:outputEntry id="_CFDEEB5A-EE33-4A93-ABE0-4376B2A0BFDB">
+              <dmn:text>200</dmn:text>
+            </dmn:outputEntry>
+            <dmn:annotationEntry>
+              <dmn:text/>
+            </dmn:annotationEntry>
+          </dmn:rule>
+          <dmn:rule id="_d3a763b5-8f31-d91d-d591-a6474cc3b729">
+            <dmn:inputEntry id="_4945D812-81C7-46DD-B25F-E07AA9D75B03">
+              <dmn:text>[3..5]</dmn:text>
+            </dmn:inputEntry>
+            <dmn:outputEntry id="_78134177-81CA-4E65-A76E-D75589F96690">
+              <dmn:text>500</dmn:text>
+            </dmn:outputEntry>
+            <dmn:annotationEntry>
+              <dmn:text/>
+            </dmn:annotationEntry>
+          </dmn:rule>
+          <dmn:rule id="_25e57077-fe60-0277-7b8e-1fedb8adb4d2">
+            <dmn:inputEntry id="_7581A8D8-1A98-4161-9A7C-2C7DEDCEC417">
+              <dmn:text>&gt; 5</dmn:text>
+            </dmn:inputEntry>
+            <dmn:outputEntry id="_53CED3FF-28C2-4F4D-9A70-D97C5EBD5B8B">
+              <dmn:text>700</dmn:text>
+            </dmn:outputEntry>
+            <dmn:annotationEntry>
+              <dmn:text/>
+            </dmn:annotationEntry>
+          </dmn:rule>
+        </dmn:decisionTable>
+      </dmn:contextEntry>
+      <dmn:contextEntry>
+        <dmn:literalExpression id="_bdbec71a-feff-bf07-71e4-6d247ffe4551">
+          <dmn:text>if Strafe Tagessatz &gt; 0 then Überziehungstage * Strafe Tagessatz else 0</dmn:text>
+        </dmn:literalExpression>
+      </dmn:contextEntry>
+    </dmn:context>
+  </dmn:decision>
+  <dmn:decision id="_b7f59d4a-3b2d-d6c8-710c-6ce6c8b5bd63" name="Reparaturkosten">
+    <dmn:extensionElements/>
+    <dmn:variable id="_76f29d4a-ea79-71b3-9b00-66da02ad21a2" name="Reparaturkosten" typeRef="number"/>
+    <dmn:informationRequirement id="_C09F3428-42E4-46E8-9B4F-022AD71A89F4">
+      <dmn:requiredInput href="#_5f1cf758-c4d5-71e6-6edf-0f3fc152e16c"/>
+    </dmn:informationRequirement>
+    <dmn:informationRequirement id="_8C5A4EDA-C26D-411E-9684-4FE7FF2E7627">
+      <dmn:requiredInput href="#_477d6a17-6eb2-5237-7da1-6e701b03c313"/>
+    </dmn:informationRequirement>
+    <dmn:knowledgeRequirement id="_A14B89E8-301B-4ED8-90DC-89262B9AAD2B">
+      <dmn:requiredKnowledge href="#_18d15ebd-bdc3-2d76-70c8-578e43b592d1"/>
+    </dmn:knowledgeRequirement>
+    <dmn:decisionTable id="_e35a6379-98c3-7573-e3ea-690de3257c2c" hitPolicy="UNIQUE" preferredOrientation="Rule-as-Row">
+      <dmn:input id="_79bafd65-0989-2749-968f-e4115c085e20">
+        <dmn:inputExpression id="_118B998C-7CB8-4F98-ACFB-8099C80591E4" typeRef="number">
+          <dmn:text>Selbstbehalt(Mietvertragsdaten)</dmn:text>
+        </dmn:inputExpression>
+      </dmn:input>
+      <dmn:input id="_fd1add2b-5473-0c2c-00d4-2709323d2c50">
+        <dmn:inputExpression id="_56D0FE56-4E24-47E8-A125-8D02A11F631C" typeRef="number">
+          <dmn:text>Rückgabeprotokoll.Beschädigungen</dmn:text>
+        </dmn:inputExpression>
+      </dmn:input>
+      <dmn:output id="_da9f6284-7928-9241-6825-6806bb803b2d"/>
+      <dmn:annotation name=""/>
+      <dmn:rule id="_2a41e9a1-5372-86cc-218c-a4c4983f92cb">
+        <dmn:inputEntry id="_738C6036-9F9F-409F-A004-A00243AFFF68">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_C56C767F-3898-4ABC-9F5D-3B9517ED4AF0">
+          <dmn:text>0</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_B3F74D4F-1E54-4683-A903-385FE5FDB7C4">
+          <dmn:text>0</dmn:text>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text/>
+        </dmn:annotationEntry>
+      </dmn:rule>
+      <dmn:rule id="_10a82833-ef7e-05c9-3d59-dfd69b56588a">
+        <dmn:inputEntry id="_F788A3EB-891A-4311-98A2-4649B3D3998A">
+          <dmn:text>&lt; 0</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_5555BDD3-3D2F-4CF9-B3A7-E4719B77BCB6">
+          <dmn:text>&gt; 0</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_25A95D23-74CE-4F8D-92CB-95547441E75F">
+          <dmn:text>Rückgabeprotokoll.Beschädigungen</dmn:text>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text/>
+        </dmn:annotationEntry>
+      </dmn:rule>
+      <dmn:rule id="_e06b9e30-17a2-ed74-e58f-227892bd2989">
+        <dmn:inputEntry id="_A5587264-2A80-47B0-96AC-62193D3C66E5">
+          <dmn:text>0</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_8F06A149-F9E2-4DE1-A51E-48627C317A1E">
+          <dmn:text>&gt; 0</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_342C32E7-AA04-4C9F-BF3F-494C54D16129">
+          <dmn:text>0</dmn:text>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text/>
+        </dmn:annotationEntry>
+      </dmn:rule>
+      <dmn:rule id="_41b0cc79-e279-7480-8c58-f1e944fa4109">
+        <dmn:inputEntry id="_FEA041B1-261D-48CD-95E7-A0C7CF44E045">
+          <dmn:text>&gt; 0</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_60C7B158-7AA3-4919-8EDD-2CCCF803DC00">
+          <dmn:text>&gt; 0</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_D0447D4C-C01B-4801-BC69-2BC3DC327A51">
+          <dmn:text>if (Rückgabeprotokoll.Beschädigungen &lt;= Selbstbehalt(Mietvertragsdaten) ) 
 then Rückgabeprotokoll.Beschädigungen
-else Selbstbehalt(Mietvertragsdaten)</dmn12:text>
-        </dmn12:outputEntry>
-      </dmn12:rule>
-    </dmn12:decisionTable>
-  </dmn12:decision>
-  <dmn12:decision name="Fehlendes Zubehör" id="_bfe7a1bd-90b9-8e1a-86ed-eb9fd2943831">
-    <dmn12:extensionElements>
-      <ino:profilename value="ROOT PROFILE" />
-      <ino:stereotypename value="decision" />
-    </dmn12:extensionElements>
-    <dmn12:variable name="Fehlendes Zubehör" id="_a87315dd-26cb-3554-6d02-a256d0d14beb" typeRef="number"></dmn12:variable>
-    <dmn12:informationRequirement>
-      <dmn12:requiredInput href="#_5f1cf758-c4d5-71e6-6edf-0f3fc152e16c" />
-    </dmn12:informationRequirement>
-    <dmn12:informationRequirement>
-      <dmn12:requiredInput href="#_477d6a17-6eb2-5237-7da1-6e701b03c313" />
-    </dmn12:informationRequirement>
-    <dmn12:informationRequirement>
-      <dmn12:requiredInput href="#_63cca905-f4f3-e4be-bbaf-40180f8abd33" />
-    </dmn12:informationRequirement>
-    <dmn12:knowledgeRequirement>
-      <dmn12:requiredKnowledge href="#_58117bf9-a62c-16e9-21c5-707c0bbbdfd9" />
-    </dmn12:knowledgeRequirement>
-    <dmn12:context id="_59582ece-cee6-f571-8575-7e128e1b96f0">
-      <dmn12:contextEntry>
-        <dmn12:variable name="Betrag" id="_a3863e45-2007-b42d-ab98-b130d55c7c2a" typeRef="number"></dmn12:variable>
-        <dmn12:invocation id="_c0aefeaf-b6da-f391-1c04-3ab058fc4b30">
-          <dmn12:literalExpression>
-            <dmn12:text>Wert Fahrzeugzubehör</dmn12:text>
-          </dmn12:literalExpression>
-          <dmn12:binding>
-            <dmn12:parameter name="fzg" />
-            <dmn12:literalExpression id="_3182e518-c5ee-cb84-4b51-61a6f22f9a3a">
-              <dmn12:text>Fahrzeug</dmn12:text>
-            </dmn12:literalExpression>
-          </dmn12:binding>
-          <dmn12:binding>
-            <dmn12:parameter name="zubehoer" />
-            <dmn12:literalExpression id="_1025836d-f654-1213-1cb5-bcdceab125ad">
-              <dmn12:text>Mietvertragsdaten.Enthaltenes Zubehör</dmn12:text>
-            </dmn12:literalExpression>
-          </dmn12:binding>
-        </dmn12:invocation>
-      </dmn12:contextEntry>
-      <dmn12:contextEntry>
-        <dmn12:literalExpression id="_01255879-046b-1e60-6b93-b67cb1158462">
-          <dmn12:text>if not (Rückgabeprotokoll.Zubehör vollständig)
+else Selbstbehalt(Mietvertragsdaten)</dmn:text>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text/>
+        </dmn:annotationEntry>
+      </dmn:rule>
+    </dmn:decisionTable>
+  </dmn:decision>
+  <dmn:decision id="_bfe7a1bd-90b9-8e1a-86ed-eb9fd2943831" name="Fehlendes Zubehör">
+    <dmn:extensionElements/>
+    <dmn:variable id="_a87315dd-26cb-3554-6d02-a256d0d14beb" name="Fehlendes Zubehör" typeRef="number"/>
+    <dmn:informationRequirement id="_9CD346AA-F712-45DF-A601-6E5E658A9633">
+      <dmn:requiredInput href="#_5f1cf758-c4d5-71e6-6edf-0f3fc152e16c"/>
+    </dmn:informationRequirement>
+    <dmn:informationRequirement id="_FE91DF28-C5CE-4AEE-9648-9B6152946294">
+      <dmn:requiredInput href="#_477d6a17-6eb2-5237-7da1-6e701b03c313"/>
+    </dmn:informationRequirement>
+    <dmn:informationRequirement id="_5E141528-12FD-482C-9E5D-97A8C6AB054C">
+      <dmn:requiredInput href="#_63cca905-f4f3-e4be-bbaf-40180f8abd33"/>
+    </dmn:informationRequirement>
+    <dmn:knowledgeRequirement id="_F788D446-5A89-4EC6-BAEA-87E8AAED0D5B">
+      <dmn:requiredKnowledge href="#_58117bf9-a62c-16e9-21c5-707c0bbbdfd9"/>
+    </dmn:knowledgeRequirement>
+    <dmn:context id="_59582ece-cee6-f571-8575-7e128e1b96f0">
+      <dmn:contextEntry>
+        <dmn:variable id="_a3863e45-2007-b42d-ab98-b130d55c7c2a" name="Betrag" typeRef="number"/>
+        <dmn:invocation id="_c0aefeaf-b6da-f391-1c04-3ab058fc4b30">
+          <dmn:literalExpression id="_F2613301-8779-401F-8992-121DCCD071E9">
+            <dmn:text>Wert Fahrzeugzubehör</dmn:text>
+          </dmn:literalExpression>
+          <dmn:binding>
+            <dmn:parameter id="_FD4A31F9-4921-46CB-99D1-9E737B5D374F" name="fzg"/>
+            <dmn:literalExpression id="_3182e518-c5ee-cb84-4b51-61a6f22f9a3a">
+              <dmn:text>Fahrzeug</dmn:text>
+            </dmn:literalExpression>
+          </dmn:binding>
+          <dmn:binding>
+            <dmn:parameter id="_69A8BC0F-28EC-4F89-86AF-0B7A536412D8" name="zubehoer"/>
+            <dmn:literalExpression id="_1025836d-f654-1213-1cb5-bcdceab125ad">
+              <dmn:text>Mietvertragsdaten.Enthaltenes Zubehör</dmn:text>
+            </dmn:literalExpression>
+          </dmn:binding>
+        </dmn:invocation>
+      </dmn:contextEntry>
+      <dmn:contextEntry>
+        <dmn:literalExpression id="_01255879-046b-1e60-6b93-b67cb1158462">
+          <dmn:text>if not (Rückgabeprotokoll.Zubehör vollständig)
 then Betrag
-else 0</dmn12:text>
-        </dmn12:literalExpression>
-      </dmn12:contextEntry>
-    </dmn12:context>
-  </dmn12:decision>
-</dmn12:definitions>
+else 0</dmn:text>
+        </dmn:literalExpression>
+      </dmn:contextEntry>
+    </dmn:context>
+  </dmn:decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram id="_3463B7D2-11F1-4A31-B2E5-2994D69E2681" name="DRG">
+      <di:extension>
+        <kie:ComponentsWidthsExtension>
+          <kie:ComponentWidths dmnElementRef="_e3674dc4-b5d5-52bb-f181-579998a5eab5">
+            <kie:width>50</kie:width>
+            <kie:width>100</kie:width>
+            <kie:width>100</kie:width>
+            <kie:width>100</kie:width>
+            <kie:width>100</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_fd6fcdee-e6d7-128a-8db5-77492efc7834">
+            <kie:width>50</kie:width>
+            <kie:width>470</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_41b665a7-f9b9-3489-a0e0-cf6ceb991977">
+            <kie:width>50</kie:width>
+            <kie:width>234</kie:width>
+            <kie:width>249</kie:width>
+            <kie:width>100</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_16c85b02-84a4-c29d-435e-b7954e3cc471">
+            <kie:width>50</kie:width>
+            <kie:width>653</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_165fea78-f867-becf-52d7-490d60372051">
+            <kie:width>50</kie:width>
+            <kie:width>676</kie:width>
+            <kie:width>295</kie:width>
+            <kie:width>201</kie:width>
+            <kie:width>209</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_4a47d178-db72-ec0f-4a5a-04cb9129879a"/>
+          <kie:ComponentWidths dmnElementRef="_3e9c9163-4d8e-b7f9-d4a0-e4a0cd1da9ba"/>
+          <kie:ComponentWidths dmnElementRef="_8b6d5afc-3b93-6aa5-8089-72bef6fdbaa9"/>
+          <kie:ComponentWidths dmnElementRef="_bdbec71a-feff-bf07-71e4-6d247ffe4551"/>
+          <kie:ComponentWidths dmnElementRef="_e35a6379-98c3-7573-e3ea-690de3257c2c">
+            <kie:width>50</kie:width>
+            <kie:width>274</kie:width>
+            <kie:width>305</kie:width>
+            <kie:width>598</kie:width>
+            <kie:width>100</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_59582ece-cee6-f571-8575-7e128e1b96f0"/>
+          <kie:ComponentWidths dmnElementRef="_c0aefeaf-b6da-f391-1c04-3ab058fc4b30"/>
+          <kie:ComponentWidths dmnElementRef="_F2613301-8779-401F-8992-121DCCD071E9"/>
+          <kie:ComponentWidths dmnElementRef="_3182e518-c5ee-cb84-4b51-61a6f22f9a3a"/>
+          <kie:ComponentWidths dmnElementRef="_1025836d-f654-1213-1cb5-bcdceab125ad"/>
+          <kie:ComponentWidths dmnElementRef="_01255879-046b-1e60-6b93-b67cb1158462"/>
+        </kie:ComponentsWidthsExtension>
+      </di:extension>
+      <dmndi:DMNShape id="dmnshape-drg-_5f1cf758-c4d5-71e6-6edf-0f3fc152e16c" dmnElementRef="_5f1cf758-c4d5-71e6-6edf-0f3fc152e16c" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="147.9392523364486" y="396" width="147" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="dmnshape-drg-_63cca905-f4f3-e4be-bbaf-40180f8abd33" dmnElementRef="_63cca905-f4f3-e4be-bbaf-40180f8abd33" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="684.2990654205607" y="397" width="100" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="dmnshape-drg-_477d6a17-6eb2-5237-7da1-6e701b03c313" dmnElementRef="_477d6a17-6eb2-5237-7da1-6e701b03c313" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="501.9906542056075" y="397" width="144" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="dmnshape-drg-_58117bf9-a62c-16e9-21c5-707c0bbbdfd9" dmnElementRef="_58117bf9-a62c-16e9-21c5-707c0bbbdfd9" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="544.088785046729" y="223" width="130" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="dmnshape-drg-_18d15ebd-bdc3-2d76-70c8-578e43b592d1" dmnElementRef="_18d15ebd-bdc3-2d76-70c8-578e43b592d1" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="943" y="223.3421052631579" width="100" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="dmnshape-drg-_85712ca9-94fc-8273-a4f0-31f5a37241d4" dmnElementRef="_85712ca9-94fc-8273-a4f0-31f5a37241d4" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="400" y="50" width="100" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="dmnshape-drg-_749815fe-d0f5-8e17-2ccc-ef739bfacadd" dmnElementRef="_749815fe-d0f5-8e17-2ccc-ef739bfacadd" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="136" y="223" width="155" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="dmnshape-drg-_b7f59d4a-3b2d-d6c8-710c-6ce6c8b5bd63" dmnElementRef="_b7f59d4a-3b2d-d6c8-710c-6ce6c8b5bd63" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="719" y="225" width="125" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="dmnshape-drg-_bfe7a1bd-90b9-8e1a-86ed-eb9fd2943831" dmnElementRef="_bfe7a1bd-90b9-8e1a-86ed-eb9fd2943831" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="400" y="225" width="100" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="dmnedge-drg-_D0A6C4E3-F40E-46E4-99E7-F0F6D26548E2" dmnElementRef="_D0A6C4E3-F40E-46E4-99E7-F0F6D26548E2">
+        <di:waypoint x="781.5" y="250"/>
+        <di:waypoint x="450" y="75"/>
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="dmnedge-drg-_55C92664-D407-4370-9D34-B94BB7369EAF" dmnElementRef="_55C92664-D407-4370-9D34-B94BB7369EAF">
+        <di:waypoint x="213.5" y="248"/>
+        <di:waypoint x="450" y="75"/>
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="dmnedge-drg-_1501F7BB-DF2E-4506-852A-C39E001DEE1B" dmnElementRef="_1501F7BB-DF2E-4506-852A-C39E001DEE1B">
+        <di:waypoint x="450" y="250"/>
+        <di:waypoint x="450" y="75"/>
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="dmnedge-drg-_655026EE-1721-4CAA-8C84-42C80334A2CE" dmnElementRef="_655026EE-1721-4CAA-8C84-42C80334A2CE">
+        <di:waypoint x="221.4392523364486" y="421"/>
+        <di:waypoint x="450" y="75"/>
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="dmnedge-drg-_5AF363E7-6044-48FE-B5A6-4699D5B1E30E" dmnElementRef="_5AF363E7-6044-48FE-B5A6-4699D5B1E30E">
+        <di:waypoint x="221.4392523364486" y="421"/>
+        <di:waypoint x="213.5" y="248"/>
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="dmnedge-drg-_E81FC6A8-37D1-479A-91A2-1AA017377950-AUTO-TARGET" dmnElementRef="_E81FC6A8-37D1-479A-91A2-1AA017377950">
+        <di:waypoint x="573.9906542056075" y="422"/>
+        <di:waypoint x="213.5" y="273"/>
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="dmnedge-drg-_C09F3428-42E4-46E8-9B4F-022AD71A89F4" dmnElementRef="_C09F3428-42E4-46E8-9B4F-022AD71A89F4">
+        <di:waypoint x="221.4392523364486" y="421"/>
+        <di:waypoint x="781.5" y="250"/>
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="dmnedge-drg-_8C5A4EDA-C26D-411E-9684-4FE7FF2E7627" dmnElementRef="_8C5A4EDA-C26D-411E-9684-4FE7FF2E7627">
+        <di:waypoint x="573.9906542056075" y="422"/>
+        <di:waypoint x="781.5" y="250"/>
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="dmnedge-drg-_A14B89E8-301B-4ED8-90DC-89262B9AAD2B" dmnElementRef="_A14B89E8-301B-4ED8-90DC-89262B9AAD2B">
+        <di:waypoint x="993" y="248.3421052631579"/>
+        <di:waypoint x="781.5" y="250"/>
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="dmnedge-drg-_9CD346AA-F712-45DF-A601-6E5E658A9633" dmnElementRef="_9CD346AA-F712-45DF-A601-6E5E658A9633">
+        <di:waypoint x="221.4392523364486" y="421"/>
+        <di:waypoint x="450" y="250"/>
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="dmnedge-drg-_FE91DF28-C5CE-4AEE-9648-9B6152946294" dmnElementRef="_FE91DF28-C5CE-4AEE-9648-9B6152946294">
+        <di:waypoint x="573.9906542056075" y="422"/>
+        <di:waypoint x="450" y="250"/>
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="dmnedge-drg-_5E141528-12FD-482C-9E5D-97A8C6AB054C" dmnElementRef="_5E141528-12FD-482C-9E5D-97A8C6AB054C">
+        <di:waypoint x="734.2990654205607" y="422"/>
+        <di:waypoint x="450" y="250"/>
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="dmnedge-drg-_F788D446-5A89-4EC6-BAEA-87E8AAED0D5B" dmnElementRef="_F788D446-5A89-4EC6-BAEA-87E8AAED0D5B">
+        <di:waypoint x="609.088785046729" y="248"/>
+        <di:waypoint x="450" y="250"/>
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</dmn:definitions>
