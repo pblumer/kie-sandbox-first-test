@@ -194,7 +194,7 @@
       <dmn:formalParameter id="_9ad0c5f4-668a-e850-e951-6b4ad4bec8c0" name="Vertrag" typeRef="Mietvertragsdaten"/>
       <dmn:decisionTable id="_41b665a7-f9b9-3489-a0e0-cf6ceb991977" hitPolicy="UNIQUE" preferredOrientation="Rule-as-Row">
         <dmn:input id="_b1c4fb83-8591-fa52-8a26-e6872d5b4a5d">
-          <dmn:inputExpression id="_C449B84B-A7A5-4A37-92C0-A1768F4BA0FF">
+          <dmn:inputExpression id="_C449B84B-A7A5-4A37-92C0-A1768F4BA0FF" typeRef="number">
             <dmn:text>Vertrag.Deckungsart</dmn:text>
           </dmn:inputExpression>
         </dmn:input>
@@ -628,7 +628,7 @@ else 0</dmn:text>
           <dmndi:StrokeColor red="0" green="0" blue="0"/>
           <dmndi:FontColor red="0" green="0" blue="0"/>
         </dmndi:DMNStyle>
-        <dc:Bounds x="943" y="223.3421052631579" width="100" height="50"/>
+        <dc:Bounds x="945" y="223.3421052631579" width="100" height="50"/>
         <dmndi:DMNLabel/>
       </dmndi:DMNShape>
       <dmndi:DMNShape id="dmnshape-drg-_85712ca9-94fc-8273-a4f0-31f5a37241d4" dmnElementRef="_85712ca9-94fc-8273-a4f0-31f5a37241d4" isCollapsed="false">
@@ -700,7 +700,7 @@ else 0</dmn:text>
         <di:waypoint x="810" y="250"/>
       </dmndi:DMNEdge>
       <dmndi:DMNEdge id="dmnedge-drg-_A14B89E8-301B-4ED8-90DC-89262B9AAD2B" dmnElementRef="_A14B89E8-301B-4ED8-90DC-89262B9AAD2B">
-        <di:waypoint x="993" y="248.3421052631579"/>
+        <di:waypoint x="995" y="248.3421052631579"/>
         <di:waypoint x="810" y="250"/>
       </dmndi:DMNEdge>
       <dmndi:DMNEdge id="dmnedge-drg-_9CD346AA-F712-45DF-A601-6E5E658A9633" dmnElementRef="_9CD346AA-F712-45DF-A601-6E5E658A9633">
