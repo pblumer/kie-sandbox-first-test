@@ -700,20 +700,20 @@ else 0</dmn:text>
         <di:waypoint x="810" y="250"/>
       </dmndi:DMNEdge>
       <dmndi:DMNEdge id="dmnedge-drg-_A14B89E8-301B-4ED8-90DC-89262B9AAD2B" dmnElementRef="_A14B89E8-301B-4ED8-90DC-89262B9AAD2B">
-        <di:waypoint x="995" y="248.3421052631579"/>
+        <di:waypoint x="995" y="248.34210526315792"/>
         <di:waypoint x="810" y="250"/>
       </dmndi:DMNEdge>
       <dmndi:DMNEdge id="dmnedge-drg-_9CD346AA-F712-45DF-A601-6E5E658A9633" dmnElementRef="_9CD346AA-F712-45DF-A601-6E5E658A9633">
         <di:waypoint x="221.4392523364486" y="421"/>
         <di:waypoint x="450" y="250"/>
       </dmndi:DMNEdge>
-      <dmndi:DMNEdge id="dmnedge-drg-_F788D446-5A89-4EC6-BAEA-87E8AAED0D5B" dmnElementRef="_F788D446-5A89-4EC6-BAEA-87E8AAED0D5B">
-        <di:waypoint x="609.088785046729" y="248"/>
-        <di:waypoint x="450" y="250"/>
-      </dmndi:DMNEdge>
       <dmndi:DMNEdge id="dmnedge-drg-_5E141528-12FD-482C-9E5D-97A8C6AB054C-AUTO-TARGET" dmnElementRef="_5E141528-12FD-482C-9E5D-97A8C6AB054C">
         <di:waypoint x="624.2990654205607" y="421"/>
         <di:waypoint x="450" y="275"/>
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="dmnedge-drg-_F788D446-5A89-4EC6-BAEA-87E8AAED0D5B" dmnElementRef="_F788D446-5A89-4EC6-BAEA-87E8AAED0D5B">
+        <di:waypoint x="609.088785046729" y="248"/>
+        <di:waypoint x="450" y="250"/>
       </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
   </dmndi:DMNDI>
