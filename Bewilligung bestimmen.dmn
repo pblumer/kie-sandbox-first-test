@@ -1,198 +1,147 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<dmn:definitions xmlns:dmn="http://www.omg.org/spec/DMN/20180521/MODEL/" xmlns="http://sample.dmn.mid.de/" xmlns:ino="http://www.mid.de/spec/Innovator/14.2.1" xmlns:feel="http://www.omg.org/spec/DMN/20180521/FEEL/" xmlns:kie="http://www.drools.org/kie/dmn/1.2" xmlns:dmndi="http://www.omg.org/spec/DMN/20180521/DMNDI/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" id="def_9ac8750a-192f-9418-289a-492314564ef1" name="Bewilligung bestimmen" typeLanguage="http://www.omg.org/spec/DMN/20180521/FEEL/" namespace="http://sample.dmn.mid.de/">
-  <dmn:extensionElements/>
-  <dmn:itemDefinition id="_175D6346-15FA-4710-BD6E-D03C4181502B" name="Länderliste" isCollection="false">
-    <dmn:typeRef>string</dmn:typeRef>
-    <dmn:allowedValues kie:constraintType="enumeration" id="_2C06B4DC-A2C6-40CA-8275-3925B301267A">
-      <dmn:text>"Schweiz", "Deutschland", "Österreich", "England", "India"</dmn:text>
-    </dmn:allowedValues>
-  </dmn:itemDefinition>
-  <dmn:inputData id="_f93ee46e-610a-e9f7-d9df-12cf94bd42ae" name="Tagespauschale Schweiz">
-    <dmn:extensionElements/>
-    <dmn:variable id="_a75b04c8-fd52-dabf-9b23-75b0bc5e5c43" name="Tagespauschale Schweiz" typeRef="number"/>
-  </dmn:inputData>
-  <dmn:inputData id="_5a107f6a-f254-e971-9133-9e038dda2a93" name="Land">
-    <dmn:extensionElements/>
-    <dmn:variable id="_6faa868c-2a4d-f56c-76e2-2186439b6446" name="Land" typeRef="Länderliste"/>
-  </dmn:inputData>
-  <dmn:businessKnowledgeModel id="_56b9a7df-29c1-1eb5-5a0e-a5502d112f27" name="Länderspesen">
-    <dmn:extensionElements/>
-    <dmn:variable id="_a211083c-3ca1-46d7-8194-6774827b7b91" name="Länderspesen" typeRef="number"/>
-    <dmn:encapsulatedLogic id="_5b3c86db-0424-5674-b9f0-e7255788e990" kind="FEEL">
-      <dmn:formalParameter id="_93d0d0dd-9300-06b1-4099-2eeeb7401d26" name="Selektiertes_Land" typeRef="string"/>
-      <dmn:formalParameter id="_5a3f2752-c915-66d3-4f81-b236a582d505" name="Schweizer_Tagespauschale" typeRef="number"/>
-      <dmn:decisionTable id="_3524dba6-a751-8eeb-9684-ed654536f745" hitPolicy="UNIQUE" preferredOrientation="Rule-as-Row">
-        <dmn:input id="_3f4f3b17-edf1-1d7c-8ac4-06bad0a4f8bd">
-          <dmn:inputExpression id="_795CE2E5-DAA6-4B23-8EBC-AF5828D203B8">
-            <dmn:text>Selektiertes_Land</dmn:text>
-          </dmn:inputExpression>
-        </dmn:input>
-        <dmn:output id="_b15db205-daca-f744-1e28-d58504081155"/>
-        <dmn:annotation name=""/>
-        <dmn:rule id="_a1343ad1-7cbb-c555-12a7-402065350840">
-          <dmn:inputEntry id="_FFCC450B-878A-40CC-8540-4F359A0ACA5E">
-            <dmn:text>"Schweiz"</dmn:text>
-          </dmn:inputEntry>
-          <dmn:outputEntry id="_DC1299E6-3387-44DA-B9A5-6FF91AF3D2D5">
-            <dmn:text>Schweizer_Tagespauschale * 1</dmn:text>
-          </dmn:outputEntry>
-          <dmn:annotationEntry>
-            <dmn:text/>
-          </dmn:annotationEntry>
-        </dmn:rule>
-        <dmn:rule id="_3624a7ae-4999-ee6b-7693-d4579fa27aa1">
-          <dmn:inputEntry id="_C9376DCE-A32B-49C2-9B52-8D37CF6E97FD">
-            <dmn:text>"Deutschland"</dmn:text>
-          </dmn:inputEntry>
-          <dmn:outputEntry id="_8FB126FA-4529-47BF-864B-553DAADFCDE1">
-            <dmn:text>Schweizer_Tagespauschale * 0.8</dmn:text>
-          </dmn:outputEntry>
-          <dmn:annotationEntry>
-            <dmn:text/>
-          </dmn:annotationEntry>
-        </dmn:rule>
-        <dmn:rule id="_0d841afc-4847-32bc-12a2-f888e684cd38">
-          <dmn:inputEntry id="_56C5FBB4-6AB7-46AD-8ADC-CD96E723AF77">
-            <dmn:text>"Österreich"</dmn:text>
-          </dmn:inputEntry>
-          <dmn:outputEntry id="_AD2FFCBD-01ED-457F-BC88-9CB554E81E82">
-            <dmn:text>Schweizer_Tagespauschale * 0.7</dmn:text>
-          </dmn:outputEntry>
-          <dmn:annotationEntry>
-            <dmn:text/>
-          </dmn:annotationEntry>
-        </dmn:rule>
-        <dmn:rule id="_ad7ebf7b-f54c-b2f5-68bd-2dc81b46a975">
-          <dmn:inputEntry id="_8B2CE254-25CF-4B76-8B54-D6F331878883">
-            <dmn:text>"England"</dmn:text>
-          </dmn:inputEntry>
-          <dmn:outputEntry id="_CBC6636C-D4CA-4C2A-96E8-3FCA2142019F">
-            <dmn:text>Schweizer_Tagespauschale * 1.1</dmn:text>
-          </dmn:outputEntry>
-          <dmn:annotationEntry>
-            <dmn:text/>
-          </dmn:annotationEntry>
-        </dmn:rule>
-        <dmn:rule id="_cb2ddffb-67a7-ee7c-3378-8d2c438c9bef">
-          <dmn:inputEntry id="_B2E108C3-EB8C-4EC1-BA35-3D363E2AD50A">
-            <dmn:text>"India"</dmn:text>
-          </dmn:inputEntry>
-          <dmn:outputEntry id="_837D598A-C533-4B17-8040-ABE8430364CD">
-            <dmn:text>Schweizer_Tagespauschale * 0.3</dmn:text>
-          </dmn:outputEntry>
-          <dmn:annotationEntry>
-            <dmn:text/>
-          </dmn:annotationEntry>
-        </dmn:rule>
-      </dmn:decisionTable>
-    </dmn:encapsulatedLogic>
-  </dmn:businessKnowledgeModel>
-  <dmn:decision id="_ceda4cc1-c1b2-5a27-bb2e-fef76e1484fe" name="Ländersatz">
-    <dmn:extensionElements/>
-    <dmn:variable id="_6e79a69c-2125-7e2e-167e-a4ec2c957147" name="Ländersatz"/>
-    <dmn:informationRequirement id="_D1488C89-FDA1-4EA5-AFFA-B9B37972B299">
-      <dmn:requiredInput href="#_5a107f6a-f254-e971-9133-9e038dda2a93"/>
-    </dmn:informationRequirement>
-    <dmn:informationRequirement id="_2E10A582-178C-4583-852C-2A6EB44E1C91">
-      <dmn:requiredInput href="#_f93ee46e-610a-e9f7-d9df-12cf94bd42ae"/>
-    </dmn:informationRequirement>
-    <dmn:knowledgeRequirement id="_77D67676-6FBD-48CF-A968-77CEC619E64E">
-      <dmn:requiredKnowledge href="#_56b9a7df-29c1-1eb5-5a0e-a5502d112f27"/>
-    </dmn:knowledgeRequirement>
-    <dmn:invocation id="_f05a2b25-c1a2-6977-559e-5e02f6723967">
-      <dmn:literalExpression id="_B2E14449-B41A-436F-8234-5BAEA1E105AC">
-        <dmn:text>Länderspesen</dmn:text>
-      </dmn:literalExpression>
-      <dmn:binding>
-        <dmn:parameter id="_797844B2-1989-4B5E-846B-AEDC828298B6" name="Selektiertes_Land"/>
-        <dmn:literalExpression id="_d0e4669c-fe58-92e3-d0df-677ce9f1fe84">
-          <dmn:text>Land</dmn:text>
-        </dmn:literalExpression>
-      </dmn:binding>
-      <dmn:binding>
-        <dmn:parameter id="_111972FA-978F-4EE9-9F8F-37F790A73ACF" name="Schweizer_Tagespauschale"/>
-        <dmn:literalExpression id="_30c61168-12a9-c37f-4dcd-f14610b8087e">
-          <dmn:text>Tagespauschale Schweiz</dmn:text>
-        </dmn:literalExpression>
-      </dmn:binding>
-    </dmn:invocation>
-  </dmn:decision>
-  <dmndi:DMNDI>
-    <dmndi:DMNDiagram id="_8A20FBD8-8E72-4978-B3C9-FF38D2EC938E" name="DRG">
-      <di:extension>
-        <kie:ComponentsWidthsExtension>
-          <kie:ComponentWidths dmnElementRef="_3524dba6-a751-8eeb-9684-ed654536f745">
-            <kie:width>50</kie:width>
-            <kie:width>100</kie:width>
-            <kie:width>100</kie:width>
-            <kie:width>100</kie:width>
-          </kie:ComponentWidths>
-          <kie:ComponentWidths dmnElementRef="_5b3c86db-0424-5674-b9f0-e7255788e990">
-            <kie:width>50</kie:width>
-            <kie:width>370</kie:width>
-          </kie:ComponentWidths>
-          <kie:ComponentWidths dmnElementRef="_f05a2b25-c1a2-6977-559e-5e02f6723967">
-            <kie:width>50</kie:width>
-            <kie:width>120</kie:width>
-            <kie:width>150</kie:width>
-          </kie:ComponentWidths>
-          <kie:ComponentWidths dmnElementRef="_B2E14449-B41A-436F-8234-5BAEA1E105AC"/>
-          <kie:ComponentWidths dmnElementRef="_d0e4669c-fe58-92e3-d0df-677ce9f1fe84">
-            <kie:width>150</kie:width>
-          </kie:ComponentWidths>
-          <kie:ComponentWidths dmnElementRef="_30c61168-12a9-c37f-4dcd-f14610b8087e">
-            <kie:width>150</kie:width>
-          </kie:ComponentWidths>
-        </kie:ComponentsWidthsExtension>
-      </di:extension>
-      <dmndi:DMNShape id="dmnshape-drg-_f93ee46e-610a-e9f7-d9df-12cf94bd42ae" dmnElementRef="_f93ee46e-610a-e9f7-d9df-12cf94bd42ae" isCollapsed="false">
-        <dmndi:DMNStyle>
-          <dmndi:FillColor red="255" green="255" blue="255"/>
-          <dmndi:StrokeColor red="0" green="0" blue="0"/>
-          <dmndi:FontColor red="0" green="0" blue="0"/>
-        </dmndi:DMNStyle>
-        <dc:Bounds x="220" y="185" width="137" height="50"/>
-        <dmndi:DMNLabel/>
-      </dmndi:DMNShape>
-      <dmndi:DMNShape id="dmnshape-drg-_5a107f6a-f254-e971-9133-9e038dda2a93" dmnElementRef="_5a107f6a-f254-e971-9133-9e038dda2a93" isCollapsed="false">
-        <dmndi:DMNStyle>
-          <dmndi:FillColor red="255" green="255" blue="255"/>
-          <dmndi:StrokeColor red="0" green="0" blue="0"/>
-          <dmndi:FontColor red="0" green="0" blue="0"/>
-        </dmndi:DMNStyle>
-        <dc:Bounds x="446" y="185" width="100" height="50"/>
-        <dmndi:DMNLabel/>
-      </dmndi:DMNShape>
-      <dmndi:DMNShape id="dmnshape-drg-_56b9a7df-29c1-1eb5-5a0e-a5502d112f27" dmnElementRef="_56b9a7df-29c1-1eb5-5a0e-a5502d112f27" isCollapsed="false">
-        <dmndi:DMNStyle>
-          <dmndi:FillColor red="255" green="255" blue="255"/>
-          <dmndi:StrokeColor red="0" green="0" blue="0"/>
-          <dmndi:FontColor red="0" green="0" blue="0"/>
-        </dmndi:DMNStyle>
-        <dc:Bounds x="700" y="50" width="100" height="50"/>
-        <dmndi:DMNLabel/>
-      </dmndi:DMNShape>
-      <dmndi:DMNShape id="dmnshape-drg-_ceda4cc1-c1b2-5a27-bb2e-fef76e1484fe" dmnElementRef="_ceda4cc1-c1b2-5a27-bb2e-fef76e1484fe" isCollapsed="false">
-        <dmndi:DMNStyle>
-          <dmndi:FillColor red="255" green="255" blue="255"/>
-          <dmndi:StrokeColor red="0" green="0" blue="0"/>
-          <dmndi:FontColor red="0" green="0" blue="0"/>
-        </dmndi:DMNStyle>
-        <dc:Bounds x="400" y="50" width="100" height="50"/>
-        <dmndi:DMNLabel/>
-      </dmndi:DMNShape>
-      <dmndi:DMNEdge id="dmnedge-drg-_D1488C89-FDA1-4EA5-AFFA-B9B37972B299" dmnElementRef="_D1488C89-FDA1-4EA5-AFFA-B9B37972B299">
-        <di:waypoint x="496" y="210"/>
-        <di:waypoint x="450" y="75"/>
-      </dmndi:DMNEdge>
-      <dmndi:DMNEdge id="dmnedge-drg-_2E10A582-178C-4583-852C-2A6EB44E1C91" dmnElementRef="_2E10A582-178C-4583-852C-2A6EB44E1C91">
-        <di:waypoint x="288.5" y="210"/>
-        <di:waypoint x="450" y="75"/>
-      </dmndi:DMNEdge>
-      <dmndi:DMNEdge id="dmnedge-drg-_77D67676-6FBD-48CF-A968-77CEC619E64E" dmnElementRef="_77D67676-6FBD-48CF-A968-77CEC619E64E">
-        <di:waypoint x="750" y="75"/>
-        <di:waypoint x="450" y="75"/>
-      </dmndi:DMNEdge>
-    </dmndi:DMNDiagram>
-  </dmndi:DMNDI>
-</dmn:definitions>
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<dmn12:definitions name="Bewilligung bestimmen" id="def_9ac8750a-192f-9418-289a-492314564ef1" xmlns:ino="http://www.mid.de/spec/Innovator/14.2.1" xmlns:feel="http://www.omg.org/spec/FEEL/20140401" xmlns:dmn12="http://www.omg.org/spec/DMN/20180521/MODEL/" xmlns="http://sample.dmn.mid.de/" namespace="http://sample.dmn.mid.de/" exporter="Innovator" exporterVersion="14.3.1">
+  <dmn12:itemDefinition name="Länderliste" id="_0be17c3c-3374-4246-e84f-da4ce458862d" isCollection="true">
+    <dmn12:extensionElements>
+      <ino:profilename value="ROOT PROFILE" />
+      <ino:stereotypename value="structure" />
+    </dmn12:extensionElements>
+    <dmn12:itemComponent name="Schweiz" id="_88a78068-87ac-4a75-7dc3-1d301acc662a">
+      <dmn12:extensionElements>
+        <ino:profilename value="ROOT PROFILE" />
+        <ino:stereotypename value="structureEntry" />
+      </dmn12:extensionElements>
+    </dmn12:itemComponent>
+    <dmn12:itemComponent name="Deutschland" id="_ee8b518e-3e5d-0986-9c72-f2c313054cea">
+      <dmn12:extensionElements>
+        <ino:profilename value="ROOT PROFILE" />
+        <ino:stereotypename value="structureEntry" />
+      </dmn12:extensionElements>
+    </dmn12:itemComponent>
+    <dmn12:itemComponent name="Österreich" id="_e407b21d-00ca-0805-02f7-11d58b80b215">
+      <dmn12:extensionElements>
+        <ino:profilename value="ROOT PROFILE" />
+        <ino:stereotypename value="structureEntry" />
+      </dmn12:extensionElements>
+    </dmn12:itemComponent>
+  </dmn12:itemDefinition>
+  <dmn12:inputData name="Spesenart" id="_13625047-e72d-3f98-b7dc-a9bef8dca35e">
+    <dmn12:extensionElements>
+      <ino:profilename value="MMB_MetaModel" />
+      <ino:stereotypename value="InputData" />
+    </dmn12:extensionElements>
+    <dmn12:variable name="Spesenart" id="_6b8f94b3-b933-22f4-4339-3268ea8c4bf8" typeRef="string"></dmn12:variable>
+  </dmn12:inputData>
+  <dmn12:inputData name="Anzahl Tage" id="_a5c66d6f-11fb-793d-8af4-4884cf94b4ab">
+    <dmn12:extensionElements>
+      <ino:profilename value="MMB_MetaModel" />
+      <ino:stereotypename value="InputData" />
+    </dmn12:extensionElements>
+    <dmn12:variable name="Anzahl Tage" id="_0cf747f7-42a0-3759-c885-3a9ed899ec85" typeRef="number"></dmn12:variable>
+  </dmn12:inputData>
+  <dmn12:inputData name="Tagespauschale Schweiz" id="_f93ee46e-610a-e9f7-d9df-12cf94bd42ae">
+    <dmn12:extensionElements>
+      <ino:profilename value="MMB_MetaModel" />
+      <ino:stereotypename value="InputData" />
+    </dmn12:extensionElements>
+    <dmn12:variable name="Tagespauschale Schweiz" id="_a75b04c8-fd52-dabf-9b23-75b0bc5e5c43" typeRef="number"></dmn12:variable>
+  </dmn12:inputData>
+  <dmn12:inputData name="Land" id="_5a107f6a-f254-e971-9133-9e038dda2a93">
+    <dmn12:extensionElements>
+      <ino:profilename value="MMB_MetaModel" />
+      <ino:stereotypename value="InputData" />
+    </dmn12:extensionElements>
+    <dmn12:variable name="Land" id="_6faa868c-2a4d-f56c-76e2-2186439b6446" typeRef="Länderliste"></dmn12:variable>
+  </dmn12:inputData>
+  <dmn12:businessKnowledgeModel name="Länderspesen" id="_56b9a7df-29c1-1eb5-5a0e-a5502d112f27">
+    <dmn12:extensionElements>
+      <ino:profilename value="MMB_MetaModel" />
+      <ino:stereotypename value="BusinessKnowledgeModel" />
+    </dmn12:extensionElements>
+    <dmn12:variable name="Länderspesen" id="_a211083c-3ca1-46d7-8194-6774827b7b91" typeRef="number"></dmn12:variable>
+    <dmn12:encapsulatedLogic id="_5b3c86db-0424-5674-b9f0-e7255788e990">
+      <dmn12:formalParameter name="Selektiertes_Land" id="_93d0d0dd-9300-06b1-4099-2eeeb7401d26" typeRef="string"></dmn12:formalParameter>
+      <dmn12:formalParameter name="Schweizer_Tagespauschale" id="_5a3f2752-c915-66d3-4f81-b236a582d505" typeRef="number"></dmn12:formalParameter>
+      <dmn12:decisionTable id="_3524dba6-a751-8eeb-9684-ed654536f745" hitPolicy="UNIQUE" preferredOrientation="Rule-as-Row">
+        <dmn12:input id="_3f4f3b17-edf1-1d7c-8ac4-06bad0a4f8bd" label="Selektiertes_Land">
+          <dmn12:inputExpression>
+            <dmn12:text>Selektiertes_Land</dmn12:text>
+          </dmn12:inputExpression>
+        </dmn12:input>
+        <dmn12:output id="_b15db205-daca-f744-1e28-d58504081155"></dmn12:output>
+        <dmn12:rule id="_a1343ad1-7cbb-c555-12a7-402065350840">
+          <dmn12:inputEntry>
+            <dmn12:text>"Schweiz"</dmn12:text>
+          </dmn12:inputEntry>
+          <dmn12:outputEntry>
+            <dmn12:text>Schweizer_Tagespauschale * 1</dmn12:text>
+          </dmn12:outputEntry>
+        </dmn12:rule>
+        <dmn12:rule id="_3624a7ae-4999-ee6b-7693-d4579fa27aa1">
+          <dmn12:inputEntry>
+            <dmn12:text>"Deutschland"</dmn12:text>
+          </dmn12:inputEntry>
+          <dmn12:outputEntry>
+            <dmn12:text>Schweizer_Tagespauschale * 0.8</dmn12:text>
+          </dmn12:outputEntry>
+        </dmn12:rule>
+        <dmn12:rule id="_0d841afc-4847-32bc-12a2-f888e684cd38">
+          <dmn12:inputEntry>
+            <dmn12:text>"Österreich"</dmn12:text>
+          </dmn12:inputEntry>
+          <dmn12:outputEntry>
+            <dmn12:text>Schweizer_Tagespauschale * 0.7</dmn12:text>
+          </dmn12:outputEntry>
+        </dmn12:rule>
+        <dmn12:rule id="_ad7ebf7b-f54c-b2f5-68bd-2dc81b46a975">
+          <dmn12:inputEntry>
+            <dmn12:text>"England"</dmn12:text>
+          </dmn12:inputEntry>
+          <dmn12:outputEntry>
+            <dmn12:text>Schweizer_Tagespauschale * 1.1</dmn12:text>
+          </dmn12:outputEntry>
+        </dmn12:rule>
+        <dmn12:rule id="_cb2ddffb-67a7-ee7c-3378-8d2c438c9bef">
+          <dmn12:inputEntry>
+            <dmn12:text>"India"</dmn12:text>
+          </dmn12:inputEntry>
+          <dmn12:outputEntry>
+            <dmn12:text>Schweizer_Tagespauschale * 0.3</dmn12:text>
+          </dmn12:outputEntry>
+        </dmn12:rule>
+      </dmn12:decisionTable>
+    </dmn12:encapsulatedLogic>
+  </dmn12:businessKnowledgeModel>
+  <dmn12:decision name="Ländersatz" id="_ceda4cc1-c1b2-5a27-bb2e-fef76e1484fe">
+    <dmn12:extensionElements>
+      <ino:profilename value="MMB_MetaModel" />
+      <ino:stereotypename value="Decision" />
+    </dmn12:extensionElements>
+    <dmn12:variable name="Ländersatz" id="_6e79a69c-2125-7e2e-167e-a4ec2c957147"></dmn12:variable>
+    <dmn12:informationRequirement>
+      <dmn12:requiredInput href="#_5a107f6a-f254-e971-9133-9e038dda2a93" />
+    </dmn12:informationRequirement>
+    <dmn12:informationRequirement>
+      <dmn12:requiredInput href="#_f93ee46e-610a-e9f7-d9df-12cf94bd42ae" />
+    </dmn12:informationRequirement>
+    <dmn12:knowledgeRequirement>
+      <dmn12:requiredKnowledge href="#_56b9a7df-29c1-1eb5-5a0e-a5502d112f27" />
+    </dmn12:knowledgeRequirement>
+    <dmn12:invocation id="_f05a2b25-c1a2-6977-559e-5e02f6723967">
+      <dmn12:literalExpression>
+        <dmn12:text>Länderspesen</dmn12:text>
+      </dmn12:literalExpression>
+      <dmn12:binding>
+        <dmn12:parameter name="Selektiertes_Land" />
+        <dmn12:literalExpression id="_d0e4669c-fe58-92e3-d0df-677ce9f1fe84">
+          <dmn12:text>Land</dmn12:text>
+        </dmn12:literalExpression>
+      </dmn12:binding>
+      <dmn12:binding>
+        <dmn12:parameter name="Schweizer_Tagespauschale" />
+        <dmn12:literalExpression id="_30c61168-12a9-c37f-4dcd-f14610b8087e">
+          <dmn12:text>Tagespauschale Schweiz</dmn12:text>
+        </dmn12:literalExpression>
+      </dmn12:binding>
+    </dmn12:invocation>
+  </dmn12:decision>
+</dmn12:definitions>
