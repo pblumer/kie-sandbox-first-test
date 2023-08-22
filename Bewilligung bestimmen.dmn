@@ -1,5 +1,29 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <dmn12:definitions name="Bewilligung bestimmen" id="def_9ac8750a-192f-9418-289a-492314564ef1" xmlns:ino="http://www.mid.de/spec/Innovator/14.2.1" xmlns:feel="http://www.omg.org/spec/FEEL/20140401" xmlns:dmn12="http://www.omg.org/spec/DMN/20180521/MODEL/" xmlns="http://sample.dmn.mid.de/" namespace="http://sample.dmn.mid.de/" exporter="Innovator" exporterVersion="14.3.1">
+  <dmn12:itemDefinition name="Länderliste" id="_d92535fa-c0c9-edad-b8b6-4ab4c75096cc">
+    <dmn12:extensionElements>
+      <ino:profilename value="ROOT PROFILE" />
+      <ino:stereotypename value="structure" />
+    </dmn12:extensionElements>
+    <dmn12:itemComponent name="Schweiz" id="_8c132629-5b8c-db27-0b5d-cecbf7f4592d">
+      <dmn12:extensionElements>
+        <ino:profilename value="ROOT PROFILE" />
+        <ino:stereotypename value="structureEntry" />
+      </dmn12:extensionElements>
+    </dmn12:itemComponent>
+    <dmn12:itemComponent name="Deutschland" id="_a8477682-b5cf-6a4a-0a3e-47910b9c4981">
+      <dmn12:extensionElements>
+        <ino:profilename value="ROOT PROFILE" />
+        <ino:stereotypename value="structureEntry" />
+      </dmn12:extensionElements>
+    </dmn12:itemComponent>
+    <dmn12:itemComponent name="Österreich" id="_e73542b7-1ba9-d73d-3c21-3287e4578f52">
+      <dmn12:extensionElements>
+        <ino:profilename value="ROOT PROFILE" />
+        <ino:stereotypename value="structureEntry" />
+      </dmn12:extensionElements>
+    </dmn12:itemComponent>
+  </dmn12:itemDefinition>
   <dmn12:inputData name="Spesenart" id="_13625047-e72d-3f98-b7dc-a9bef8dca35e">
     <dmn12:extensionElements>
       <ino:profilename value="MMB_MetaModel" />
@@ -26,7 +50,7 @@
       <ino:profilename value="MMB_MetaModel" />
       <ino:stereotypename value="InputData" />
     </dmn12:extensionElements>
-    <dmn12:variable name="Land" id="_6faa868c-2a4d-f56c-76e2-2186439b6446" typeRef="string"></dmn12:variable>
+    <dmn12:variable name="Land" id="_6faa868c-2a4d-f56c-76e2-2186439b6446" typeRef="Länderliste"></dmn12:variable>
   </dmn12:inputData>
   <dmn12:businessKnowledgeModel name="Länderspesen" id="_56b9a7df-29c1-1eb5-5a0e-a5502d112f27">
     <dmn12:extensionElements>
