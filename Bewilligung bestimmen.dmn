@@ -1,11 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <dmn12:definitions name="Bewilligung bestimmen" id="def_9ac8750a-192f-9418-289a-492314564ef1" xmlns:ino="http://www.mid.de/spec/Innovator/14.2.1" xmlns:feel="http://www.omg.org/spec/FEEL/20140401" xmlns:dmn12="http://www.omg.org/spec/DMN/20180521/MODEL/" xmlns="http://sample.dmn.mid.de/" namespace="http://sample.dmn.mid.de/" exporter="Innovator" exporterVersion="14.3.1">
-  <dmn12:itemDefinition name="Länderliste" id="_0be17c3c-3374-4246-e84f-da4ce458862d" isCollection="true">
-    <dmn12:extensionElements>
-      <ino:profilename value="ROOT PROFILE" />
-      <ino:stereotypename value="structure" />
-    </dmn12:extensionElements>
-  </dmn12:itemDefinition>
   <dmn12:inputData name="Spesenart" id="_13625047-e72d-3f98-b7dc-a9bef8dca35e">
     <dmn12:extensionElements>
       <ino:profilename value="MMB_MetaModel" />
@@ -32,8 +26,21 @@
       <ino:profilename value="MMB_MetaModel" />
       <ino:stereotypename value="InputData" />
     </dmn12:extensionElements>
-    <dmn12:variable name="Land" id="_6faa868c-2a4d-f56c-76e2-2186439b6446" typeRef="Länderliste"></dmn12:variable>
+    <dmn12:variable name="Land" id="_6faa868c-2a4d-f56c-76e2-2186439b6446" typeRef="string"></dmn12:variable>
   </dmn12:inputData>
+  <dmn12:inputData name="Spesenbetrag" id="_807e7338-c5c3-638b-29aa-e87afc0847f2">
+    <dmn12:extensionElements>
+      <ino:profilename value="MMB_MetaModel" />
+      <ino:stereotypename value="InputData" />
+    </dmn12:extensionElements>
+    <dmn12:variable name="Spesenbetrag" id="_a8870be6-ad9b-2e1a-2dc7-db07cc6972f3" typeRef="number"></dmn12:variable>
+  </dmn12:inputData>
+  <dmn12:knowledgeSource name="Spesenreglement 13.05.2009" id="_7051650b-160f-db9a-fc89-0bc4c202b8dd">
+    <dmn12:extensionElements>
+      <ino:profilename value="MMB_MetaModel" />
+      <ino:stereotypename value="KnowledgeSource" />
+    </dmn12:extensionElements>
+  </dmn12:knowledgeSource>
   <dmn12:businessKnowledgeModel name="Länderspesen" id="_56b9a7df-29c1-1eb5-5a0e-a5502d112f27">
     <dmn12:extensionElements>
       <ino:profilename value="MMB_MetaModel" />
@@ -92,6 +99,9 @@
         </dmn12:rule>
       </dmn12:decisionTable>
     </dmn12:encapsulatedLogic>
+    <dmn12:authorityRequirement>
+      <dmn12:requiredAuthority href="#_7051650b-160f-db9a-fc89-0bc4c202b8dd" />
+    </dmn12:authorityRequirement>
   </dmn12:businessKnowledgeModel>
   <dmn12:decision name="Ländersatz" id="_ceda4cc1-c1b2-5a27-bb2e-fef76e1484fe">
     <dmn12:extensionElements>
@@ -125,5 +135,64 @@
         </dmn12:literalExpression>
       </dmn12:binding>
     </dmn12:invocation>
+  </dmn12:decision>
+  <dmn12:decision name="Dienstreisespesen berechnen" id="_173aba07-f909-0361-ded7-3bc27da7f753">
+    <dmn12:extensionElements>
+      <ino:profilename value="MMB_MetaModel" />
+      <ino:stereotypename value="Decision" />
+    </dmn12:extensionElements>
+    <dmn12:variable name="Dienstreisespesen berechnen" id="_46ff19e2-5a55-8d20-00ae-b18b2b9de03a" typeRef="number"></dmn12:variable>
+    <dmn12:informationRequirement>
+      <dmn12:requiredInput href="#_13625047-e72d-3f98-b7dc-a9bef8dca35e" />
+    </dmn12:informationRequirement>
+    <dmn12:informationRequirement>
+      <dmn12:requiredInput href="#_a5c66d6f-11fb-793d-8af4-4884cf94b4ab" />
+    </dmn12:informationRequirement>
+    <dmn12:informationRequirement>
+      <dmn12:requiredDecision href="#_ceda4cc1-c1b2-5a27-bb2e-fef76e1484fe" />
+    </dmn12:informationRequirement>
+    <dmn12:authorityRequirement>
+      <dmn12:requiredAuthority href="#_7051650b-160f-db9a-fc89-0bc4c202b8dd" />
+    </dmn12:authorityRequirement>
+    <dmn12:decisionTable id="_736864c3-ee5f-f102-7cb4-d6c2880a1744" hitPolicy="UNIQUE" preferredOrientation="Rule-as-Row">
+      <dmn12:input id="_4143bf0a-6586-d197-f129-6b8279e36607" label="Input">
+        <dmn12:inputExpression>
+          <dmn12:text>Spesenart</dmn12:text>
+        </dmn12:inputExpression>
+      </dmn12:input>
+      <dmn12:output id="_ee27c95c-28c4-24f4-3574-69718d107f57"></dmn12:output>
+      <dmn12:rule id="_caa2c0e0-f214-9ac5-fb0c-82b4624be5d0">
+        <dmn12:inputEntry>
+          <dmn12:text>"Dienstreise"</dmn12:text>
+        </dmn12:inputEntry>
+        <dmn12:outputEntry>
+          <dmn12:text>Anzahl Tage * Ländersatz</dmn12:text>
+        </dmn12:outputEntry>
+      </dmn12:rule>
+      <dmn12:rule id="_0737aed4-68fa-37b6-54f5-b5fbb1d6bf2f">
+        <dmn12:inputEntry>
+          <dmn12:text>!= "Dienstreise"</dmn12:text>
+        </dmn12:inputEntry>
+        <dmn12:outputEntry>
+          <dmn12:text>0</dmn12:text>
+        </dmn12:outputEntry>
+      </dmn12:rule>
+    </dmn12:decisionTable>
+  </dmn12:decision>
+  <dmn12:decision name="Spesen berechnen" id="_82c7d1fb-482d-c0ea-7bfb-de2c0ad5827d">
+    <dmn12:extensionElements>
+      <ino:profilename value="MMB_MetaModel" />
+      <ino:stereotypename value="Decision" />
+    </dmn12:extensionElements>
+    <dmn12:variable name="Spesen berechnen" id="_c484084d-eb4d-5d14-3485-86a50fc3fde7" typeRef="number"></dmn12:variable>
+    <dmn12:informationRequirement>
+      <dmn12:requiredInput href="#_807e7338-c5c3-638b-29aa-e87afc0847f2" />
+    </dmn12:informationRequirement>
+    <dmn12:informationRequirement>
+      <dmn12:requiredDecision href="#_173aba07-f909-0361-ded7-3bc27da7f753" />
+    </dmn12:informationRequirement>
+    <dmn12:literalExpression id="_035b2776-ee58-2ce5-393a-38dbe792fe9d">
+      <dmn12:text>Spesenbetrag * Dienstreisespesen berechnen</dmn12:text>
+    </dmn12:literalExpression>
   </dmn12:decision>
 </dmn12:definitions>
