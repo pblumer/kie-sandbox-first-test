@@ -49,7 +49,7 @@
             <dmn12:text>"Schweiz"</dmn12:text>
           </dmn12:inputEntry>
           <dmn12:outputEntry>
-            <dmn12:text>= Schweizer_Tagespauschale * 1</dmn12:text>
+            <dmn12:text>Schweizer_Tagespauschale * 1</dmn12:text>
           </dmn12:outputEntry>
         </dmn12:rule>
         <dmn12:rule id="_3624a7ae-4999-ee6b-7693-d4579fa27aa1">
@@ -57,7 +57,7 @@
             <dmn12:text>"Deutschland"</dmn12:text>
           </dmn12:inputEntry>
           <dmn12:outputEntry>
-            <dmn12:text>= Schweizer_Tagespauschale * 0.8</dmn12:text>
+            <dmn12:text>Schweizer_Tagespauschale * 0.8</dmn12:text>
           </dmn12:outputEntry>
         </dmn12:rule>
         <dmn12:rule id="_0d841afc-4847-32bc-12a2-f888e684cd38">
@@ -65,7 +65,7 @@
             <dmn12:text>"Österreich"</dmn12:text>
           </dmn12:inputEntry>
           <dmn12:outputEntry>
-            <dmn12:text>= Schweizer_Tagespauschale * 0.7</dmn12:text>
+            <dmn12:text>Schweizer_Tagespauschale * 0.7</dmn12:text>
           </dmn12:outputEntry>
         </dmn12:rule>
         <dmn12:rule id="_ad7ebf7b-f54c-b2f5-68bd-2dc81b46a975">
@@ -73,7 +73,7 @@
             <dmn12:text>"England"</dmn12:text>
           </dmn12:inputEntry>
           <dmn12:outputEntry>
-            <dmn12:text>= Schweizer_Tagespauschale * 1.1</dmn12:text>
+            <dmn12:text>Schweizer_Tagespauschale * 1.1</dmn12:text>
           </dmn12:outputEntry>
         </dmn12:rule>
         <dmn12:rule id="_cb2ddffb-67a7-ee7c-3378-8d2c438c9bef">
@@ -81,7 +81,7 @@
             <dmn12:text>"India"</dmn12:text>
           </dmn12:inputEntry>
           <dmn12:outputEntry>
-            <dmn12:text>= Schweizer_Tagespauschale * 0.3</dmn12:text>
+            <dmn12:text>Schweizer_Tagespauschale * 0.3</dmn12:text>
           </dmn12:outputEntry>
         </dmn12:rule>
       </dmn12:decisionTable>
