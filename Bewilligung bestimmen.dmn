@@ -113,7 +113,7 @@
   </dmn:businessKnowledgeModel>
   <dmn:decision id="_ceda4cc1-c1b2-5a27-bb2e-fef76e1484fe" name="Ländersatz">
     <dmn:extensionElements/>
-    <dmn:variable id="_6e79a69c-2125-7e2e-167e-a4ec2c957147" name="Ländersatz"/>
+    <dmn:variable id="_6e79a69c-2125-7e2e-167e-a4ec2c957147" name="Ländersatz" typeRef="number"/>
     <dmn:informationRequirement id="_800BD997-57E6-4180-A4E0-053EC8A12E5E">
       <dmn:requiredInput href="#_5a107f6a-f254-e971-9133-9e038dda2a93"/>
     </dmn:informationRequirement>
@@ -128,13 +128,13 @@
         <dmn:text>Länderspesen</dmn:text>
       </dmn:literalExpression>
       <dmn:binding>
-        <dmn:parameter id="_FBAC85C6-439D-4FE1-A169-9186C8889C62" name="Selektiertes_Land"/>
+        <dmn:parameter id="_FBAC85C6-439D-4FE1-A169-9186C8889C62" name="Selektiertes_Land" typeRef="string"/>
         <dmn:literalExpression id="_d0e4669c-fe58-92e3-d0df-677ce9f1fe84">
           <dmn:text>Land</dmn:text>
         </dmn:literalExpression>
       </dmn:binding>
       <dmn:binding>
-        <dmn:parameter id="_FBD4E371-C9DF-4D8E-8E5D-7E33DB0E2A7C" name="Schweizer_Tagespauschale"/>
+        <dmn:parameter id="_FBD4E371-C9DF-4D8E-8E5D-7E33DB0E2A7C" name="Schweizer_Tagespauschale" typeRef="string"/>
         <dmn:literalExpression id="_30c61168-12a9-c37f-4dcd-f14610b8087e">
           <dmn:text>Tagespauschale Schweiz</dmn:text>
         </dmn:literalExpression>
@@ -158,7 +158,7 @@
     </dmn:authorityRequirement>
     <dmn:decisionTable id="_736864c3-ee5f-f102-7cb4-d6c2880a1744" hitPolicy="UNIQUE" preferredOrientation="Rule-as-Row">
       <dmn:input id="_4143bf0a-6586-d197-f129-6b8279e36607">
-        <dmn:inputExpression id="_0E648484-0B35-4DDD-8097-72FC62F6A67B">
+        <dmn:inputExpression id="_0E648484-0B35-4DDD-8097-72FC62F6A67B" typeRef="string">
           <dmn:text>Spesenart</dmn:text>
         </dmn:inputExpression>
       </dmn:input>
@@ -205,13 +205,34 @@
     <dmndi:DMNDiagram id="_4B905B12-670F-45DA-AE7E-D36281CADA1E" name="DRG">
       <di:extension>
         <kie:ComponentsWidthsExtension>
-          <kie:ComponentWidths dmnElementRef="_3524dba6-a751-8eeb-9684-ed654536f745"/>
-          <kie:ComponentWidths dmnElementRef="_5b3c86db-0424-5674-b9f0-e7255788e990"/>
-          <kie:ComponentWidths dmnElementRef="_f05a2b25-c1a2-6977-559e-5e02f6723967"/>
+          <kie:ComponentWidths dmnElementRef="_3524dba6-a751-8eeb-9684-ed654536f745">
+            <kie:width>50</kie:width>
+            <kie:width>157</kie:width>
+            <kie:width>268</kie:width>
+            <kie:width>100</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_5b3c86db-0424-5674-b9f0-e7255788e990">
+            <kie:width>50</kie:width>
+            <kie:width>595</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_f05a2b25-c1a2-6977-559e-5e02f6723967">
+            <kie:width>50</kie:width>
+            <kie:width>237</kie:width>
+            <kie:width>218</kie:width>
+          </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_5942A08F-85BF-49B6-8DD9-F186B2DE21A3"/>
-          <kie:ComponentWidths dmnElementRef="_d0e4669c-fe58-92e3-d0df-677ce9f1fe84"/>
-          <kie:ComponentWidths dmnElementRef="_30c61168-12a9-c37f-4dcd-f14610b8087e"/>
-          <kie:ComponentWidths dmnElementRef="_736864c3-ee5f-f102-7cb4-d6c2880a1744"/>
+          <kie:ComponentWidths dmnElementRef="_d0e4669c-fe58-92e3-d0df-677ce9f1fe84">
+            <kie:width>218</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_30c61168-12a9-c37f-4dcd-f14610b8087e">
+            <kie:width>218</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_736864c3-ee5f-f102-7cb4-d6c2880a1744">
+            <kie:width>50</kie:width>
+            <kie:width>166</kie:width>
+            <kie:width>212</kie:width>
+            <kie:width>100</kie:width>
+          </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_035b2776-ee58-2ce5-393a-38dbe792fe9d">
             <kie:width>386</kie:width>
           </kie:ComponentWidths>
