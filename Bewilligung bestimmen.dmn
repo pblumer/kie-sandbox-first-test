@@ -5,24 +5,6 @@
       <ino:profilename value="ROOT PROFILE" />
       <ino:stereotypename value="structure" />
     </dmn12:extensionElements>
-    <dmn12:itemComponent name="Schweiz" id="_88a78068-87ac-4a75-7dc3-1d301acc662a">
-      <dmn12:extensionElements>
-        <ino:profilename value="ROOT PROFILE" />
-        <ino:stereotypename value="structureEntry" />
-      </dmn12:extensionElements>
-    </dmn12:itemComponent>
-    <dmn12:itemComponent name="Deutschland" id="_ee8b518e-3e5d-0986-9c72-f2c313054cea">
-      <dmn12:extensionElements>
-        <ino:profilename value="ROOT PROFILE" />
-        <ino:stereotypename value="structureEntry" />
-      </dmn12:extensionElements>
-    </dmn12:itemComponent>
-    <dmn12:itemComponent name="Österreich" id="_e407b21d-00ca-0805-02f7-11d58b80b215">
-      <dmn12:extensionElements>
-        <ino:profilename value="ROOT PROFILE" />
-        <ino:stereotypename value="structureEntry" />
-      </dmn12:extensionElements>
-    </dmn12:itemComponent>
   </dmn12:itemDefinition>
   <dmn12:inputData name="Spesenart" id="_13625047-e72d-3f98-b7dc-a9bef8dca35e">
     <dmn12:extensionElements>
