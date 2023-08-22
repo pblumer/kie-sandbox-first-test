@@ -1,198 +1,352 @@
-<?xml version="1.0" encoding="utf-8" standalone="no"?>
-<dmn12:definitions name="Bewilligung bestimmen" id="def_9ac8750a-192f-9418-289a-492314564ef1" xmlns:ino="http://www.mid.de/spec/Innovator/14.2.1" xmlns:feel="http://www.omg.org/spec/FEEL/20140401" xmlns:dmn12="http://www.omg.org/spec/DMN/20180521/MODEL/" xmlns="http://sample.dmn.mid.de/" namespace="http://sample.dmn.mid.de/" exporter="Innovator" exporterVersion="14.3.1">
-  <dmn12:inputData name="Spesenart" id="_13625047-e72d-3f98-b7dc-a9bef8dca35e">
-    <dmn12:extensionElements>
-      <ino:profilename value="MMB_MetaModel" />
-      <ino:stereotypename value="InputData" />
-    </dmn12:extensionElements>
-    <dmn12:variable name="Spesenart" id="_6b8f94b3-b933-22f4-4339-3268ea8c4bf8" typeRef="string"></dmn12:variable>
-  </dmn12:inputData>
-  <dmn12:inputData name="Anzahl Tage" id="_a5c66d6f-11fb-793d-8af4-4884cf94b4ab">
-    <dmn12:extensionElements>
-      <ino:profilename value="MMB_MetaModel" />
-      <ino:stereotypename value="InputData" />
-    </dmn12:extensionElements>
-    <dmn12:variable name="Anzahl Tage" id="_0cf747f7-42a0-3759-c885-3a9ed899ec85" typeRef="number"></dmn12:variable>
-  </dmn12:inputData>
-  <dmn12:inputData name="Tagespauschale Schweiz" id="_f93ee46e-610a-e9f7-d9df-12cf94bd42ae">
-    <dmn12:extensionElements>
-      <ino:profilename value="MMB_MetaModel" />
-      <ino:stereotypename value="InputData" />
-    </dmn12:extensionElements>
-    <dmn12:variable name="Tagespauschale Schweiz" id="_a75b04c8-fd52-dabf-9b23-75b0bc5e5c43" typeRef="number"></dmn12:variable>
-  </dmn12:inputData>
-  <dmn12:inputData name="Land" id="_5a107f6a-f254-e971-9133-9e038dda2a93">
-    <dmn12:extensionElements>
-      <ino:profilename value="MMB_MetaModel" />
-      <ino:stereotypename value="InputData" />
-    </dmn12:extensionElements>
-    <dmn12:variable name="Land" id="_6faa868c-2a4d-f56c-76e2-2186439b6446" typeRef="string"></dmn12:variable>
-  </dmn12:inputData>
-  <dmn12:inputData name="Spesenbetrag" id="_807e7338-c5c3-638b-29aa-e87afc0847f2">
-    <dmn12:extensionElements>
-      <ino:profilename value="MMB_MetaModel" />
-      <ino:stereotypename value="InputData" />
-    </dmn12:extensionElements>
-    <dmn12:variable name="Spesenbetrag" id="_a8870be6-ad9b-2e1a-2dc7-db07cc6972f3" typeRef="number"></dmn12:variable>
-  </dmn12:inputData>
-  <dmn12:knowledgeSource name="Spesenreglement 13.05.2009" id="_7051650b-160f-db9a-fc89-0bc4c202b8dd">
-    <dmn12:extensionElements>
-      <ino:profilename value="MMB_MetaModel" />
-      <ino:stereotypename value="KnowledgeSource" />
-    </dmn12:extensionElements>
-  </dmn12:knowledgeSource>
-  <dmn12:businessKnowledgeModel name="Länderspesen" id="_56b9a7df-29c1-1eb5-5a0e-a5502d112f27">
-    <dmn12:extensionElements>
-      <ino:profilename value="MMB_MetaModel" />
-      <ino:stereotypename value="BusinessKnowledgeModel" />
-    </dmn12:extensionElements>
-    <dmn12:variable name="Länderspesen" id="_a211083c-3ca1-46d7-8194-6774827b7b91" typeRef="number"></dmn12:variable>
-    <dmn12:encapsulatedLogic id="_5b3c86db-0424-5674-b9f0-e7255788e990">
-      <dmn12:formalParameter name="Selektiertes_Land" id="_93d0d0dd-9300-06b1-4099-2eeeb7401d26" typeRef="string"></dmn12:formalParameter>
-      <dmn12:formalParameter name="Schweizer_Tagespauschale" id="_5a3f2752-c915-66d3-4f81-b236a582d505" typeRef="number"></dmn12:formalParameter>
-      <dmn12:decisionTable id="_3524dba6-a751-8eeb-9684-ed654536f745" hitPolicy="UNIQUE" preferredOrientation="Rule-as-Row">
-        <dmn12:input id="_3f4f3b17-edf1-1d7c-8ac4-06bad0a4f8bd" label="Selektiertes_Land">
-          <dmn12:inputExpression>
-            <dmn12:text>Selektiertes_Land</dmn12:text>
-          </dmn12:inputExpression>
-        </dmn12:input>
-        <dmn12:output id="_b15db205-daca-f744-1e28-d58504081155"></dmn12:output>
-        <dmn12:rule id="_a1343ad1-7cbb-c555-12a7-402065350840">
-          <dmn12:inputEntry>
-            <dmn12:text>"Schweiz"</dmn12:text>
-          </dmn12:inputEntry>
-          <dmn12:outputEntry>
-            <dmn12:text>Schweizer_Tagespauschale * 1</dmn12:text>
-          </dmn12:outputEntry>
-        </dmn12:rule>
-        <dmn12:rule id="_3624a7ae-4999-ee6b-7693-d4579fa27aa1">
-          <dmn12:inputEntry>
-            <dmn12:text>"Deutschland"</dmn12:text>
-          </dmn12:inputEntry>
-          <dmn12:outputEntry>
-            <dmn12:text>Schweizer_Tagespauschale * 0.8</dmn12:text>
-          </dmn12:outputEntry>
-        </dmn12:rule>
-        <dmn12:rule id="_0d841afc-4847-32bc-12a2-f888e684cd38">
-          <dmn12:inputEntry>
-            <dmn12:text>"Österreich"</dmn12:text>
-          </dmn12:inputEntry>
-          <dmn12:outputEntry>
-            <dmn12:text>Schweizer_Tagespauschale * 0.7</dmn12:text>
-          </dmn12:outputEntry>
-        </dmn12:rule>
-        <dmn12:rule id="_ad7ebf7b-f54c-b2f5-68bd-2dc81b46a975">
-          <dmn12:inputEntry>
-            <dmn12:text>"England"</dmn12:text>
-          </dmn12:inputEntry>
-          <dmn12:outputEntry>
-            <dmn12:text>Schweizer_Tagespauschale * 1.1</dmn12:text>
-          </dmn12:outputEntry>
-        </dmn12:rule>
-        <dmn12:rule id="_cb2ddffb-67a7-ee7c-3378-8d2c438c9bef">
-          <dmn12:inputEntry>
-            <dmn12:text>"India"</dmn12:text>
-          </dmn12:inputEntry>
-          <dmn12:outputEntry>
-            <dmn12:text>Schweizer_Tagespauschale * 0.3</dmn12:text>
-          </dmn12:outputEntry>
-        </dmn12:rule>
-      </dmn12:decisionTable>
-    </dmn12:encapsulatedLogic>
-    <dmn12:authorityRequirement>
-      <dmn12:requiredAuthority href="#_7051650b-160f-db9a-fc89-0bc4c202b8dd" />
-    </dmn12:authorityRequirement>
-  </dmn12:businessKnowledgeModel>
-  <dmn12:decision name="Ländersatz" id="_ceda4cc1-c1b2-5a27-bb2e-fef76e1484fe">
-    <dmn12:extensionElements>
-      <ino:profilename value="MMB_MetaModel" />
-      <ino:stereotypename value="Decision" />
-    </dmn12:extensionElements>
-    <dmn12:variable name="Ländersatz" id="_6e79a69c-2125-7e2e-167e-a4ec2c957147"></dmn12:variable>
-    <dmn12:informationRequirement>
-      <dmn12:requiredInput href="#_5a107f6a-f254-e971-9133-9e038dda2a93" />
-    </dmn12:informationRequirement>
-    <dmn12:informationRequirement>
-      <dmn12:requiredInput href="#_f93ee46e-610a-e9f7-d9df-12cf94bd42ae" />
-    </dmn12:informationRequirement>
-    <dmn12:knowledgeRequirement>
-      <dmn12:requiredKnowledge href="#_56b9a7df-29c1-1eb5-5a0e-a5502d112f27" />
-    </dmn12:knowledgeRequirement>
-    <dmn12:invocation id="_f05a2b25-c1a2-6977-559e-5e02f6723967">
-      <dmn12:literalExpression>
-        <dmn12:text>Länderspesen</dmn12:text>
-      </dmn12:literalExpression>
-      <dmn12:binding>
-        <dmn12:parameter name="Selektiertes_Land" />
-        <dmn12:literalExpression id="_d0e4669c-fe58-92e3-d0df-677ce9f1fe84">
-          <dmn12:text>Land</dmn12:text>
-        </dmn12:literalExpression>
-      </dmn12:binding>
-      <dmn12:binding>
-        <dmn12:parameter name="Schweizer_Tagespauschale" />
-        <dmn12:literalExpression id="_30c61168-12a9-c37f-4dcd-f14610b8087e">
-          <dmn12:text>Tagespauschale Schweiz</dmn12:text>
-        </dmn12:literalExpression>
-      </dmn12:binding>
-    </dmn12:invocation>
-  </dmn12:decision>
-  <dmn12:decision name="Dienstreisespesen berechnen" id="_173aba07-f909-0361-ded7-3bc27da7f753">
-    <dmn12:extensionElements>
-      <ino:profilename value="MMB_MetaModel" />
-      <ino:stereotypename value="Decision" />
-    </dmn12:extensionElements>
-    <dmn12:variable name="Dienstreisespesen berechnen" id="_46ff19e2-5a55-8d20-00ae-b18b2b9de03a" typeRef="number"></dmn12:variable>
-    <dmn12:informationRequirement>
-      <dmn12:requiredInput href="#_13625047-e72d-3f98-b7dc-a9bef8dca35e" />
-    </dmn12:informationRequirement>
-    <dmn12:informationRequirement>
-      <dmn12:requiredInput href="#_a5c66d6f-11fb-793d-8af4-4884cf94b4ab" />
-    </dmn12:informationRequirement>
-    <dmn12:informationRequirement>
-      <dmn12:requiredDecision href="#_ceda4cc1-c1b2-5a27-bb2e-fef76e1484fe" />
-    </dmn12:informationRequirement>
-    <dmn12:authorityRequirement>
-      <dmn12:requiredAuthority href="#_7051650b-160f-db9a-fc89-0bc4c202b8dd" />
-    </dmn12:authorityRequirement>
-    <dmn12:decisionTable id="_736864c3-ee5f-f102-7cb4-d6c2880a1744" hitPolicy="UNIQUE" preferredOrientation="Rule-as-Row">
-      <dmn12:input id="_4143bf0a-6586-d197-f129-6b8279e36607" label="Input">
-        <dmn12:inputExpression>
-          <dmn12:text>Spesenart</dmn12:text>
-        </dmn12:inputExpression>
-      </dmn12:input>
-      <dmn12:output id="_ee27c95c-28c4-24f4-3574-69718d107f57"></dmn12:output>
-      <dmn12:rule id="_caa2c0e0-f214-9ac5-fb0c-82b4624be5d0">
-        <dmn12:inputEntry>
-          <dmn12:text>"Dienstreise"</dmn12:text>
-        </dmn12:inputEntry>
-        <dmn12:outputEntry>
-          <dmn12:text>Anzahl Tage * Ländersatz</dmn12:text>
-        </dmn12:outputEntry>
-      </dmn12:rule>
-      <dmn12:rule id="_0737aed4-68fa-37b6-54f5-b5fbb1d6bf2f">
-        <dmn12:inputEntry>
-          <dmn12:text>!= "Dienstreise"</dmn12:text>
-        </dmn12:inputEntry>
-        <dmn12:outputEntry>
-          <dmn12:text>0</dmn12:text>
-        </dmn12:outputEntry>
-      </dmn12:rule>
-    </dmn12:decisionTable>
-  </dmn12:decision>
-  <dmn12:decision name="Spesen berechnen" id="_82c7d1fb-482d-c0ea-7bfb-de2c0ad5827d">
-    <dmn12:extensionElements>
-      <ino:profilename value="MMB_MetaModel" />
-      <ino:stereotypename value="Decision" />
-    </dmn12:extensionElements>
-    <dmn12:variable name="Spesen berechnen" id="_c484084d-eb4d-5d14-3485-86a50fc3fde7" typeRef="number"></dmn12:variable>
-    <dmn12:informationRequirement>
-      <dmn12:requiredInput href="#_807e7338-c5c3-638b-29aa-e87afc0847f2" />
-    </dmn12:informationRequirement>
-    <dmn12:informationRequirement>
-      <dmn12:requiredDecision href="#_173aba07-f909-0361-ded7-3bc27da7f753" />
-    </dmn12:informationRequirement>
-    <dmn12:literalExpression id="_035b2776-ee58-2ce5-393a-38dbe792fe9d">
-      <dmn12:text>Spesenbetrag * Dienstreisespesen berechnen</dmn12:text>
-    </dmn12:literalExpression>
-  </dmn12:decision>
-</dmn12:definitions>
+<?xml version="1.0" encoding="UTF-8"?>
+<dmn:definitions xmlns:dmn="http://www.omg.org/spec/DMN/20180521/MODEL/" xmlns="http://sample.dmn.mid.de/" xmlns:ino="http://www.mid.de/spec/Innovator/14.2.1" xmlns:feel="http://www.omg.org/spec/DMN/20180521/FEEL/" xmlns:kie="http://www.drools.org/kie/dmn/1.2" xmlns:dmndi="http://www.omg.org/spec/DMN/20180521/DMNDI/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" id="def_9ac8750a-192f-9418-289a-492314564ef1" name="Bewilligung bestimmen" typeLanguage="http://www.omg.org/spec/DMN/20180521/FEEL/" namespace="http://sample.dmn.mid.de/">
+  <dmn:extensionElements/>
+  <dmn:itemDefinition id="_638A47AD-68CF-4312-BDF3-5CE09BB8F703" name="Spesenart" isCollection="false">
+    <dmn:typeRef>string</dmn:typeRef>
+    <dmn:allowedValues kie:constraintType="enumeration" id="_65DE51CB-3A67-4995-A898-55D6464EE0D4">
+      <dmn:text>"Dienstreise", "keine Dienstreise"</dmn:text>
+    </dmn:allowedValues>
+  </dmn:itemDefinition>
+  <dmn:itemDefinition id="_8600FB10-DDA6-456F-8386-8283356EEDCD" name="Land" isCollection="false">
+    <dmn:typeRef>string</dmn:typeRef>
+    <dmn:allowedValues kie:constraintType="enumeration" id="_FF15EA48-70E0-4F0E-842D-E647DA7D9373">
+      <dmn:text>"Schweiz", "Deutschland", "Österreich", "England", "India"</dmn:text>
+    </dmn:allowedValues>
+  </dmn:itemDefinition>
+  <dmn:inputData id="_13625047-e72d-3f98-b7dc-a9bef8dca35e" name="Spesenart">
+    <dmn:extensionElements/>
+    <dmn:variable id="_6b8f94b3-b933-22f4-4339-3268ea8c4bf8" name="Spesenart" typeRef="Spesenart"/>
+  </dmn:inputData>
+  <dmn:inputData id="_a5c66d6f-11fb-793d-8af4-4884cf94b4ab" name="Anzahl Tage">
+    <dmn:extensionElements/>
+    <dmn:variable id="_0cf747f7-42a0-3759-c885-3a9ed899ec85" name="Anzahl Tage" typeRef="number"/>
+  </dmn:inputData>
+  <dmn:inputData id="_f93ee46e-610a-e9f7-d9df-12cf94bd42ae" name="Tagespauschale Schweiz">
+    <dmn:extensionElements/>
+    <dmn:variable id="_a75b04c8-fd52-dabf-9b23-75b0bc5e5c43" name="Tagespauschale Schweiz" typeRef="number"/>
+  </dmn:inputData>
+  <dmn:inputData id="_5a107f6a-f254-e971-9133-9e038dda2a93" name="Land">
+    <dmn:extensionElements/>
+    <dmn:variable id="_6faa868c-2a4d-f56c-76e2-2186439b6446" name="Land" typeRef="Land"/>
+  </dmn:inputData>
+  <dmn:inputData id="_807e7338-c5c3-638b-29aa-e87afc0847f2" name="Spesenbetrag">
+    <dmn:extensionElements/>
+    <dmn:variable id="_a8870be6-ad9b-2e1a-2dc7-db07cc6972f3" name="Spesenbetrag" typeRef="number"/>
+  </dmn:inputData>
+  <dmn:knowledgeSource id="_7051650b-160f-db9a-fc89-0bc4c202b8dd" name="Spesenreglement 13.05.2009">
+    <dmn:extensionElements/>
+  </dmn:knowledgeSource>
+  <dmn:businessKnowledgeModel id="_56b9a7df-29c1-1eb5-5a0e-a5502d112f27" name="Länderspesen">
+    <dmn:extensionElements/>
+    <dmn:variable id="_a211083c-3ca1-46d7-8194-6774827b7b91" name="Länderspesen" typeRef="number"/>
+    <dmn:encapsulatedLogic id="_5b3c86db-0424-5674-b9f0-e7255788e990" kind="FEEL">
+      <dmn:formalParameter id="_93d0d0dd-9300-06b1-4099-2eeeb7401d26" name="Selektiertes_Land" typeRef="string"/>
+      <dmn:formalParameter id="_5a3f2752-c915-66d3-4f81-b236a582d505" name="Schweizer_Tagespauschale" typeRef="number"/>
+      <dmn:decisionTable id="_3524dba6-a751-8eeb-9684-ed654536f745" hitPolicy="UNIQUE" preferredOrientation="Rule-as-Row">
+        <dmn:input id="_3f4f3b17-edf1-1d7c-8ac4-06bad0a4f8bd">
+          <dmn:inputExpression id="_24C70BF1-2374-46D4-8A95-26D269F37096">
+            <dmn:text>Selektiertes_Land</dmn:text>
+          </dmn:inputExpression>
+        </dmn:input>
+        <dmn:output id="_b15db205-daca-f744-1e28-d58504081155"/>
+        <dmn:annotation name=""/>
+        <dmn:rule id="_a1343ad1-7cbb-c555-12a7-402065350840">
+          <dmn:inputEntry id="_D5F7D640-EB87-4E70-A15D-CFCFDFD0C871">
+            <dmn:text>"Schweiz"</dmn:text>
+          </dmn:inputEntry>
+          <dmn:outputEntry id="_378714F9-4D02-4204-A3CA-690479732AE1">
+            <dmn:text>Schweizer_Tagespauschale * 1</dmn:text>
+          </dmn:outputEntry>
+          <dmn:annotationEntry>
+            <dmn:text/>
+          </dmn:annotationEntry>
+        </dmn:rule>
+        <dmn:rule id="_3624a7ae-4999-ee6b-7693-d4579fa27aa1">
+          <dmn:inputEntry id="_DC0F8C20-9B6D-4532-8C14-97DEC394F038">
+            <dmn:text>"Deutschland"</dmn:text>
+          </dmn:inputEntry>
+          <dmn:outputEntry id="_A35D01A9-202E-47EB-ABF8-431C3B2763BD">
+            <dmn:text>Schweizer_Tagespauschale * 0.8</dmn:text>
+          </dmn:outputEntry>
+          <dmn:annotationEntry>
+            <dmn:text/>
+          </dmn:annotationEntry>
+        </dmn:rule>
+        <dmn:rule id="_0d841afc-4847-32bc-12a2-f888e684cd38">
+          <dmn:inputEntry id="_9B1A61AF-4C62-4677-A1A7-A8E6D0B0C514">
+            <dmn:text>"Österreich"</dmn:text>
+          </dmn:inputEntry>
+          <dmn:outputEntry id="_9E28F80F-BBD5-4352-B437-35A23712C8C5">
+            <dmn:text>Schweizer_Tagespauschale * 0.7</dmn:text>
+          </dmn:outputEntry>
+          <dmn:annotationEntry>
+            <dmn:text/>
+          </dmn:annotationEntry>
+        </dmn:rule>
+        <dmn:rule id="_ad7ebf7b-f54c-b2f5-68bd-2dc81b46a975">
+          <dmn:inputEntry id="_569BA9CE-162B-4A6A-AF16-C19D51B1E785">
+            <dmn:text>"England"</dmn:text>
+          </dmn:inputEntry>
+          <dmn:outputEntry id="_CE72F696-841C-432D-B737-0FBA12EE3296">
+            <dmn:text>Schweizer_Tagespauschale * 1.1</dmn:text>
+          </dmn:outputEntry>
+          <dmn:annotationEntry>
+            <dmn:text/>
+          </dmn:annotationEntry>
+        </dmn:rule>
+        <dmn:rule id="_cb2ddffb-67a7-ee7c-3378-8d2c438c9bef">
+          <dmn:inputEntry id="_372627A8-4465-4773-A67E-18A89BE5E6B4">
+            <dmn:text>"India"</dmn:text>
+          </dmn:inputEntry>
+          <dmn:outputEntry id="_D6341D90-8C4A-482D-986F-256E453B6353">
+            <dmn:text>Schweizer_Tagespauschale * 0.3</dmn:text>
+          </dmn:outputEntry>
+          <dmn:annotationEntry>
+            <dmn:text/>
+          </dmn:annotationEntry>
+        </dmn:rule>
+      </dmn:decisionTable>
+    </dmn:encapsulatedLogic>
+    <dmn:authorityRequirement id="_FBDA1FCF-94A0-4012-9F02-C61E7913354B">
+      <dmn:requiredAuthority href="#_7051650b-160f-db9a-fc89-0bc4c202b8dd"/>
+    </dmn:authorityRequirement>
+  </dmn:businessKnowledgeModel>
+  <dmn:decision id="_ceda4cc1-c1b2-5a27-bb2e-fef76e1484fe" name="Ländersatz">
+    <dmn:extensionElements/>
+    <dmn:variable id="_6e79a69c-2125-7e2e-167e-a4ec2c957147" name="Ländersatz"/>
+    <dmn:informationRequirement id="_800BD997-57E6-4180-A4E0-053EC8A12E5E">
+      <dmn:requiredInput href="#_5a107f6a-f254-e971-9133-9e038dda2a93"/>
+    </dmn:informationRequirement>
+    <dmn:informationRequirement id="_325ED04D-CE16-425F-B8BB-E0539C625C7A">
+      <dmn:requiredInput href="#_f93ee46e-610a-e9f7-d9df-12cf94bd42ae"/>
+    </dmn:informationRequirement>
+    <dmn:knowledgeRequirement id="_CB2F3C1A-7E90-4FFD-9D01-BB1477866C7A">
+      <dmn:requiredKnowledge href="#_56b9a7df-29c1-1eb5-5a0e-a5502d112f27"/>
+    </dmn:knowledgeRequirement>
+    <dmn:invocation id="_f05a2b25-c1a2-6977-559e-5e02f6723967">
+      <dmn:literalExpression id="_5942A08F-85BF-49B6-8DD9-F186B2DE21A3">
+        <dmn:text>Länderspesen</dmn:text>
+      </dmn:literalExpression>
+      <dmn:binding>
+        <dmn:parameter id="_FBAC85C6-439D-4FE1-A169-9186C8889C62" name="Selektiertes_Land"/>
+        <dmn:literalExpression id="_d0e4669c-fe58-92e3-d0df-677ce9f1fe84">
+          <dmn:text>Land</dmn:text>
+        </dmn:literalExpression>
+      </dmn:binding>
+      <dmn:binding>
+        <dmn:parameter id="_FBD4E371-C9DF-4D8E-8E5D-7E33DB0E2A7C" name="Schweizer_Tagespauschale"/>
+        <dmn:literalExpression id="_30c61168-12a9-c37f-4dcd-f14610b8087e">
+          <dmn:text>Tagespauschale Schweiz</dmn:text>
+        </dmn:literalExpression>
+      </dmn:binding>
+    </dmn:invocation>
+  </dmn:decision>
+  <dmn:decision id="_173aba07-f909-0361-ded7-3bc27da7f753" name="Dienstreisespesen berechnen">
+    <dmn:extensionElements/>
+    <dmn:variable id="_46ff19e2-5a55-8d20-00ae-b18b2b9de03a" name="Dienstreisespesen berechnen" typeRef="number"/>
+    <dmn:informationRequirement id="_FC143952-CD4B-4D95-A7AE-856494D2F250">
+      <dmn:requiredInput href="#_13625047-e72d-3f98-b7dc-a9bef8dca35e"/>
+    </dmn:informationRequirement>
+    <dmn:informationRequirement id="_E2F0A546-C7B3-4805-9B18-4999C81D5D61">
+      <dmn:requiredInput href="#_a5c66d6f-11fb-793d-8af4-4884cf94b4ab"/>
+    </dmn:informationRequirement>
+    <dmn:informationRequirement id="_CD5FB163-E264-4626-8EDC-1FA6FCFAEDC5">
+      <dmn:requiredDecision href="#_ceda4cc1-c1b2-5a27-bb2e-fef76e1484fe"/>
+    </dmn:informationRequirement>
+    <dmn:authorityRequirement id="_B101C003-01DD-4B3F-9FB6-899393B87D8D">
+      <dmn:requiredAuthority href="#_7051650b-160f-db9a-fc89-0bc4c202b8dd"/>
+    </dmn:authorityRequirement>
+    <dmn:decisionTable id="_736864c3-ee5f-f102-7cb4-d6c2880a1744" hitPolicy="UNIQUE" preferredOrientation="Rule-as-Row">
+      <dmn:input id="_4143bf0a-6586-d197-f129-6b8279e36607">
+        <dmn:inputExpression id="_0E648484-0B35-4DDD-8097-72FC62F6A67B">
+          <dmn:text>Spesenart</dmn:text>
+        </dmn:inputExpression>
+      </dmn:input>
+      <dmn:output id="_ee27c95c-28c4-24f4-3574-69718d107f57"/>
+      <dmn:annotation name=""/>
+      <dmn:rule id="_caa2c0e0-f214-9ac5-fb0c-82b4624be5d0">
+        <dmn:inputEntry id="_08FBC3DC-EFC8-431B-A112-05A87D319416">
+          <dmn:text>"Dienstreise"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_3B4D51AC-EC29-419D-9AA5-6728CA2E9394">
+          <dmn:text>Anzahl Tage * Ländersatz</dmn:text>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text/>
+        </dmn:annotationEntry>
+      </dmn:rule>
+      <dmn:rule id="_0737aed4-68fa-37b6-54f5-b5fbb1d6bf2f">
+        <dmn:inputEntry id="_D216261C-3380-4769-9AA3-3DF84F519D34">
+          <dmn:text>!= "Dienstreise"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_E07371DC-26CD-4347-83BB-84208EC49138">
+          <dmn:text>0</dmn:text>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text/>
+        </dmn:annotationEntry>
+      </dmn:rule>
+    </dmn:decisionTable>
+  </dmn:decision>
+  <dmn:decision id="_82c7d1fb-482d-c0ea-7bfb-de2c0ad5827d" name="Spesen berechnen">
+    <dmn:extensionElements/>
+    <dmn:variable id="_c484084d-eb4d-5d14-3485-86a50fc3fde7" name="Spesen berechnen" typeRef="number"/>
+    <dmn:informationRequirement id="_0532651C-D5C6-4A8E-B593-85BA65F37B5F">
+      <dmn:requiredInput href="#_807e7338-c5c3-638b-29aa-e87afc0847f2"/>
+    </dmn:informationRequirement>
+    <dmn:informationRequirement id="_373DCEA1-AB26-4A6E-AFA8-0B1CE290B89A">
+      <dmn:requiredDecision href="#_173aba07-f909-0361-ded7-3bc27da7f753"/>
+    </dmn:informationRequirement>
+    <dmn:literalExpression id="_035b2776-ee58-2ce5-393a-38dbe792fe9d">
+      <dmn:text>Spesenbetrag + Dienstreisespesen berechnen</dmn:text>
+    </dmn:literalExpression>
+  </dmn:decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram id="_4B905B12-670F-45DA-AE7E-D36281CADA1E" name="DRG">
+      <di:extension>
+        <kie:ComponentsWidthsExtension>
+          <kie:ComponentWidths dmnElementRef="_3524dba6-a751-8eeb-9684-ed654536f745"/>
+          <kie:ComponentWidths dmnElementRef="_5b3c86db-0424-5674-b9f0-e7255788e990"/>
+          <kie:ComponentWidths dmnElementRef="_f05a2b25-c1a2-6977-559e-5e02f6723967"/>
+          <kie:ComponentWidths dmnElementRef="_5942A08F-85BF-49B6-8DD9-F186B2DE21A3"/>
+          <kie:ComponentWidths dmnElementRef="_d0e4669c-fe58-92e3-d0df-677ce9f1fe84"/>
+          <kie:ComponentWidths dmnElementRef="_30c61168-12a9-c37f-4dcd-f14610b8087e"/>
+          <kie:ComponentWidths dmnElementRef="_736864c3-ee5f-f102-7cb4-d6c2880a1744"/>
+          <kie:ComponentWidths dmnElementRef="_035b2776-ee58-2ce5-393a-38dbe792fe9d">
+            <kie:width>386</kie:width>
+          </kie:ComponentWidths>
+        </kie:ComponentsWidthsExtension>
+      </di:extension>
+      <dmndi:DMNShape id="dmnshape-drg-_13625047-e72d-3f98-b7dc-a9bef8dca35e" dmnElementRef="_13625047-e72d-3f98-b7dc-a9bef8dca35e" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="422" y="122.34210526315792" width="100" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="dmnshape-drg-_a5c66d6f-11fb-793d-8af4-4884cf94b4ab" dmnElementRef="_a5c66d6f-11fb-793d-8af4-4884cf94b4ab" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="427" y="199.6842105263158" width="100" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="dmnshape-drg-_f93ee46e-610a-e9f7-d9df-12cf94bd42ae" dmnElementRef="_f93ee46e-610a-e9f7-d9df-12cf94bd42ae" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="473.1892523364486" y="392" width="127" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="dmnshape-drg-_5a107f6a-f254-e971-9133-9e038dda2a93" dmnElementRef="_5a107f6a-f254-e971-9133-9e038dda2a93" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="631" y="392" width="100" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="dmnshape-drg-_807e7338-c5c3-638b-29aa-e87afc0847f2" dmnElementRef="_807e7338-c5c3-638b-29aa-e87afc0847f2" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="427" y="15.684210526315795" width="100" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="dmnshape-drg-_7051650b-160f-db9a-fc89-0bc4c202b8dd" dmnElementRef="_7051650b-160f-db9a-fc89-0bc4c202b8dd" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="938" y="261" width="161" height="69"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="dmnshape-drg-_56b9a7df-29c1-1eb5-5a0e-a5502d112f27" dmnElementRef="_56b9a7df-29c1-1eb5-5a0e-a5502d112f27" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="761" y="391.3421052631579" width="100" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="dmnshape-drg-_ceda4cc1-c1b2-5a27-bb2e-fef76e1484fe" dmnElementRef="_ceda4cc1-c1b2-5a27-bb2e-fef76e1484fe" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="599" y="254" width="165" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="dmnshape-drg-_173aba07-f909-0361-ded7-3bc27da7f753" dmnElementRef="_173aba07-f909-0361-ded7-3bc27da7f753" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="599" y="158" width="165" height="58"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="dmnshape-drg-_82c7d1fb-482d-c0ea-7bfb-de2c0ad5827d" dmnElementRef="_82c7d1fb-482d-c0ea-7bfb-de2c0ad5827d" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="881" y="109" width="100" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="dmnedge-drg-_FBDA1FCF-94A0-4012-9F02-C61E7913354B" dmnElementRef="_FBDA1FCF-94A0-4012-9F02-C61E7913354B">
+        <di:waypoint x="1018.5" y="295.5"/>
+        <di:waypoint x="811" y="416.3421052631579"/>
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="dmnedge-drg-_800BD997-57E6-4180-A4E0-053EC8A12E5E" dmnElementRef="_800BD997-57E6-4180-A4E0-053EC8A12E5E">
+        <di:waypoint x="681" y="417"/>
+        <di:waypoint x="681.5" y="279"/>
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="dmnedge-drg-_325ED04D-CE16-425F-B8BB-E0539C625C7A" dmnElementRef="_325ED04D-CE16-425F-B8BB-E0539C625C7A">
+        <di:waypoint x="536.6892523364486" y="417"/>
+        <di:waypoint x="681.5" y="279"/>
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="dmnedge-drg-_CB2F3C1A-7E90-4FFD-9D01-BB1477866C7A" dmnElementRef="_CB2F3C1A-7E90-4FFD-9D01-BB1477866C7A">
+        <di:waypoint x="811" y="416.3421052631579"/>
+        <di:waypoint x="681.5" y="279"/>
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="dmnedge-drg-_FC143952-CD4B-4D95-A7AE-856494D2F250" dmnElementRef="_FC143952-CD4B-4D95-A7AE-856494D2F250">
+        <di:waypoint x="472" y="147.34210526315792"/>
+        <di:waypoint x="681.5" y="187"/>
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="dmnedge-drg-_E2F0A546-C7B3-4805-9B18-4999C81D5D61" dmnElementRef="_E2F0A546-C7B3-4805-9B18-4999C81D5D61">
+        <di:waypoint x="477" y="224.6842105263158"/>
+        <di:waypoint x="681.5" y="187"/>
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="dmnedge-drg-_CD5FB163-E264-4626-8EDC-1FA6FCFAEDC5" dmnElementRef="_CD5FB163-E264-4626-8EDC-1FA6FCFAEDC5">
+        <di:waypoint x="681.5" y="279"/>
+        <di:waypoint x="681.5" y="187"/>
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="dmnedge-drg-_B101C003-01DD-4B3F-9FB6-899393B87D8D" dmnElementRef="_B101C003-01DD-4B3F-9FB6-899393B87D8D">
+        <di:waypoint x="1018.5" y="295.5"/>
+        <di:waypoint x="681.5" y="187"/>
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="dmnedge-drg-_0532651C-D5C6-4A8E-B593-85BA65F37B5F" dmnElementRef="_0532651C-D5C6-4A8E-B593-85BA65F37B5F">
+        <di:waypoint x="477" y="40.684210526315795"/>
+        <di:waypoint x="931" y="134"/>
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="dmnedge-drg-_373DCEA1-AB26-4A6E-AFA8-0B1CE290B89A" dmnElementRef="_373DCEA1-AB26-4A6E-AFA8-0B1CE290B89A">
+        <di:waypoint x="681.5" y="187"/>
+        <di:waypoint x="931" y="134"/>
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</dmn:definitions>

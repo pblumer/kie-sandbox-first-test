@@ -233,17 +233,6 @@
             <dmn:text/>
           </dmn:annotationEntry>
         </dmn:rule>
-        <dmn:rule id="_87F2BEC9-3AF6-44D9-B350-5860ABAEAC05">
-          <dmn:inputEntry id="_4403385F-7038-4FE1-8C00-DBC618A4DEC1">
-            <dmn:text>-</dmn:text>
-          </dmn:inputEntry>
-          <dmn:outputEntry id="_625F8575-EDC1-4CF3-9985-CA5D8BD5BAB5">
-            <dmn:text>5000</dmn:text>
-          </dmn:outputEntry>
-          <dmn:annotationEntry>
-            <dmn:text/>
-          </dmn:annotationEntry>
-        </dmn:rule>
       </dmn:decisionTable>
     </dmn:encapsulatedLogic>
   </dmn:businessKnowledgeModel>
