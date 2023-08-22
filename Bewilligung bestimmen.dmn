@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<dmn12:definitions name="Bewilligung bestimmen" id="def_9ac8750a-192f-9418-289a-492314564ef1" xmlns:ino="http://www.mid.de/spec/Innovator/14.2.1" xmlns:feel="http://www.omg.org/spec/FEEL/20140401" xmlns:dmn12="http://www.omg.org/spec/DMN/20180521/MODEL/" xmlns="http://sample.dmn.mid.de/" namespace="http://sample.dmn.mid.de/" exporter="Innovator" exporterVersion="14.3.1">
+  <dmn12:inputData name="Spesenart" id="_13625047-e72d-3f98-b7dc-a9bef8dca35e">
+    <dmn12:extensionElements>
+      <ino:profilename value="MMB_MetaModel" />
+      <ino:stereotypename value="InputData" />
+    </dmn12:extensionElements>
+    <dmn12:variable name="Spesenart" id="_6b8f94b3-b933-22f4-4339-3268ea8c4bf8" typeRef="string"></dmn12:variable>
+  </dmn12:inputData>
+  <dmn12:inputData name="Anzahl Tage" id="_a5c66d6f-11fb-793d-8af4-4884cf94b4ab">
+    <dmn12:extensionElements>
+      <ino:profilename value="MMB_MetaModel" />
+      <ino:stereotypename value="InputData" />
+    </dmn12:extensionElements>
+    <dmn12:variable name="Anzahl Tage" id="_0cf747f7-42a0-3759-c885-3a9ed899ec85" typeRef="number"></dmn12:variable>
+  </dmn12:inputData>
+  <dmn12:inputData name="Tagespauschale Schweiz" id="_f93ee46e-610a-e9f7-d9df-12cf94bd42ae">
+    <dmn12:extensionElements>
+      <ino:profilename value="MMB_MetaModel" />
+      <ino:stereotypename value="InputData" />
+    </dmn12:extensionElements>
+    <dmn12:variable name="Tagespauschale Schweiz" id="_a75b04c8-fd52-dabf-9b23-75b0bc5e5c43" typeRef="number"></dmn12:variable>
+  </dmn12:inputData>
+  <dmn12:inputData name="Land" id="_5a107f6a-f254-e971-9133-9e038dda2a93">
+    <dmn12:extensionElements>
+      <ino:profilename value="MMB_MetaModel" />
+      <ino:stereotypename value="InputData" />
+    </dmn12:extensionElements>
+    <dmn12:variable name="Land" id="_6faa868c-2a4d-f56c-76e2-2186439b6446" typeRef="string"></dmn12:variable>
+  </dmn12:inputData>
+  <dmn12:businessKnowledgeModel name="Länderspesen" id="_56b9a7df-29c1-1eb5-5a0e-a5502d112f27">
+    <dmn12:extensionElements>
+      <ino:profilename value="MMB_MetaModel" />
+      <ino:stereotypename value="BusinessKnowledgeModel" />
+    </dmn12:extensionElements>
+    <dmn12:variable name="Länderspesen" id="_a211083c-3ca1-46d7-8194-6774827b7b91" typeRef="number"></dmn12:variable>
+    <dmn12:encapsulatedLogic id="_5b3c86db-0424-5674-b9f0-e7255788e990">
+      <dmn12:formalParameter name="Selektiertes_Land" id="_93d0d0dd-9300-06b1-4099-2eeeb7401d26" typeRef="string"></dmn12:formalParameter>
+      <dmn12:formalParameter name="Schweizer_Tagespauschale" id="_5a3f2752-c915-66d3-4f81-b236a582d505" typeRef="number"></dmn12:formalParameter>
+      <dmn12:decisionTable id="_3524dba6-a751-8eeb-9684-ed654536f745" hitPolicy="UNIQUE" preferredOrientation="Rule-as-Row">
+        <dmn12:input id="_3f4f3b17-edf1-1d7c-8ac4-06bad0a4f8bd" label="Selektiertes_Land">
+          <dmn12:inputExpression>
+            <dmn12:text>Selektiertes_Land</dmn12:text>
+          </dmn12:inputExpression>
+        </dmn12:input>
+        <dmn12:output id="_b15db205-daca-f744-1e28-d58504081155"></dmn12:output>
+        <dmn12:rule id="_a1343ad1-7cbb-c555-12a7-402065350840">
+          <dmn12:inputEntry>
+            <dmn12:text>"Schweiz"</dmn12:text>
+          </dmn12:inputEntry>
+          <dmn12:outputEntry>
+            <dmn12:text>= Schweizer_Tagespauschale * 1</dmn12:text>
+          </dmn12:outputEntry>
+        </dmn12:rule>
+        <dmn12:rule id="_3624a7ae-4999-ee6b-7693-d4579fa27aa1">
+          <dmn12:inputEntry>
+            <dmn12:text>"Deutschland"</dmn12:text>
+          </dmn12:inputEntry>
+          <dmn12:outputEntry>
+            <dmn12:text>= Schweizer_Tagespauschale * 0.8</dmn12:text>
+          </dmn12:outputEntry>
+        </dmn12:rule>
+        <dmn12:rule id="_0d841afc-4847-32bc-12a2-f888e684cd38">
+          <dmn12:inputEntry>
+            <dmn12:text>"Österreich"</dmn12:text>
+          </dmn12:inputEntry>
+          <dmn12:outputEntry>
+            <dmn12:text>= Schweizer_Tagespauschale * 0.7</dmn12:text>
+          </dmn12:outputEntry>
+        </dmn12:rule>
+        <dmn12:rule id="_ad7ebf7b-f54c-b2f5-68bd-2dc81b46a975">
+          <dmn12:inputEntry>
+            <dmn12:text>"England"</dmn12:text>
+          </dmn12:inputEntry>
+          <dmn12:outputEntry>
+            <dmn12:text>= Schweizer_Tagespauschale * 1.1</dmn12:text>
+          </dmn12:outputEntry>
+        </dmn12:rule>
+        <dmn12:rule id="_cb2ddffb-67a7-ee7c-3378-8d2c438c9bef">
+          <dmn12:inputEntry>
+            <dmn12:text>"India"</dmn12:text>
+          </dmn12:inputEntry>
+          <dmn12:outputEntry>
+            <dmn12:text>= Schweizer_Tagespauschale * 0.3</dmn12:text>
+          </dmn12:outputEntry>
+        </dmn12:rule>
+      </dmn12:decisionTable>
+    </dmn12:encapsulatedLogic>
+  </dmn12:businessKnowledgeModel>
+  <dmn12:decision name="Ländersatz" id="_ceda4cc1-c1b2-5a27-bb2e-fef76e1484fe">
+    <dmn12:extensionElements>
+      <ino:profilename value="MMB_MetaModel" />
+      <ino:stereotypename value="Decision" />
+    </dmn12:extensionElements>
+    <dmn12:variable name="Ländersatz" id="_6e79a69c-2125-7e2e-167e-a4ec2c957147"></dmn12:variable>
+    <dmn12:informationRequirement>
+      <dmn12:requiredInput href="#_5a107f6a-f254-e971-9133-9e038dda2a93" />
+    </dmn12:informationRequirement>
+    <dmn12:informationRequirement>
+      <dmn12:requiredInput href="#_f93ee46e-610a-e9f7-d9df-12cf94bd42ae" />
+    </dmn12:informationRequirement>
+    <dmn12:knowledgeRequirement>
+      <dmn12:requiredKnowledge href="#_56b9a7df-29c1-1eb5-5a0e-a5502d112f27" />
+    </dmn12:knowledgeRequirement>
+    <dmn12:invocation id="_f05a2b25-c1a2-6977-559e-5e02f6723967">
+      <dmn12:literalExpression>
+        <dmn12:text>Länderspesen</dmn12:text>
+      </dmn12:literalExpression>
+      <dmn12:binding>
+        <dmn12:parameter name="Selektiertes_Land" />
+        <dmn12:literalExpression id="_d0e4669c-fe58-92e3-d0df-677ce9f1fe84">
+          <dmn12:text>Land</dmn12:text>
+        </dmn12:literalExpression>
+      </dmn12:binding>
+      <dmn12:binding>
+        <dmn12:parameter name="Schweizer_Tagespauschale" />
+        <dmn12:literalExpression id="_30c61168-12a9-c37f-4dcd-f14610b8087e">
+          <dmn12:text>Tagespauschale Schweiz</dmn12:text>
+        </dmn12:literalExpression>
+      </dmn12:binding>
+    </dmn12:invocation>
+  </dmn12:decision>
+</dmn12:definitions>
